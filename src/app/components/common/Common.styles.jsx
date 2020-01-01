@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const Row = styled('div')`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
 export const Container = styled('div')`
   background-color: #8DC26F;
   position: fixed;
@@ -17,6 +23,7 @@ export const WhiteCard = styled('div')`
   margin: auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: #fff;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 `;
@@ -30,18 +37,4 @@ export const Input = styled('input')`
   padding: 15px;
   box-sizing: border-box;
   font-size: 14px;
-`;
-
-export const Button = styled('button')`
-  text-transform: uppercase;
-  outline: 0;
-  background: #4CAF50;
-  width: 100%;
-  border: 0;
-  padding: 15px;
-  color: #FFFFFF;
-  font-size: 14px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
-  cursor: pointer;
 `;

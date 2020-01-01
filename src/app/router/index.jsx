@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Route, Switch, Router, Redirect } from 'react-router-dom';
 import history from './history';
-import Login from '../components/login/Login';
-import Register from '../components/register/Register';
+import Login from '../components/authentication/login/Login';
+import Register from '../components/authentication/register/Register';
 import Dashboard from '../components/dashboard/Dashboard';
+import AuthPage from '../components/authentication/AuthPage';
+import { LoginContext } from '../components/authentication/LoginContext';
 
 
 const PrivateRoute = ({ user, component: Component, ...rest }) => {
-  if (!user) {
-    return <Redirect to="/login" />
+  const { username, token } = user;
+  if (!username && !token) {
+    return <Redirect to="/" />
   } 
   return (
   <Route
@@ -18,29 +21,26 @@ const PrivateRoute = ({ user, component: Component, ...rest }) => {
     }}
   />
   )
-}
+};
 
-const AuthRouter = (props) => {
-    const [user, setUser] = useState('vlalva')
+const AuthRouter = () => {
+  const { user } = useContext(LoginContext);
+  return (
+    <Router history={history}>
+      <Switch>
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
 
-    useEffect(() => {
-      setUser('soapman');
-    }, [])
-    console.log(user);
-    return (
-      <Router history={history}>
-        <Switch>
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
+        <PrivateRoute
+          path="/dashboard"
+          component={Dashboard}
+          user={user}
+        />
 
-          <PrivateRoute 
-            path="/dashboard" 
-            component={Dashboard} 
-            user={user}
-          />
-        </Switch>
-      </Router>
-    );
-}
+        <Route path="/" component={AuthPage} />
+      </Switch>
+    </Router>
+  );
+};
 
 export default AuthRouter;

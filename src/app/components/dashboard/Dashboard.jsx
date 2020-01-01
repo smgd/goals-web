@@ -4,9 +4,9 @@ const Dashboard = (props) => {
   const { user } = props;
   return (
     <div>
-      hi, {user}!
+      hi, {user.username}!
     </div>
   )
-}
+};
 
 export default Dashboard;
