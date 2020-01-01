@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { WhiteCard, Container, Input, Button } from '../../common/Common.styles';
+import { WhiteCard, Container, Input } from '../../common/Common.styles';
 import { ValidationError } from './Register.styles';
+import Button from "../../common/Button";
 
 
 const Register = () => {
@@ -53,13 +54,13 @@ const Register = () => {
               </ValidationError>
             }
             <Button
+              title="Sign up"
+              type="dark"
               onClick={register}
-            >
-              log in
-            </Button>
+            />
           </WhiteCard>
       </Container>
     )
-}
+};
 
 export default Register;

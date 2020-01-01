@@ -1,10 +1,5 @@
 import styled from 'styled-components';
 
-export const H1 = styled('h1')`
-  font-family: Open Sans, sans-serif;
-  font-size: 24px;
-`;
-
 export const Row = styled('div')`
   display: flex;
   flex-direction: row;
@@ -42,16 +37,4 @@ export const Input = styled('input')`
   padding: 15px;
   box-sizing: border-box;
   font-size: 14px;
-`;
-
-export const Button = styled('button')`
-  text-transform: uppercase;
-  outline: 0;
-  background: #4CAF50;
-  width: 100%;
-  border: 0;
-  padding: 15px;
-  color: #FFFFFF;
-  font-size: 14px;
-  cursor: pointer;
 `;

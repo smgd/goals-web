@@ -1,9 +1,8 @@
-import React, {useContext, useState} from 'react';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 import { WhiteCard, Container, Row } from '../common/Common.styles';
 import Fonts from '../common/Fonts.styles';
-import Button from "../common/Button";
-import styled from 'styled-components';
-import { LoginContext } from "./LoginContext";
+import Button from '../common/Button';
 
 const Header = styled(Fonts.H1)`
   margin-bottom: 10px;
@@ -24,18 +23,18 @@ const AuthPage = () => {
         <Row>
           <Button
             title="Sign in"
-            style="light"
+            type="light"
             onClick={() => setLoginType('signIn')}
           />
           <Button
             title="Sign up"
-            style="dark"
+            type="dark"
             onClick={() => setLoginType('signUp')}
           />
         </Row>
       </WhiteCard>
     </Container>
   )
-}
+};
 
 export default AuthPage;

@@ -1,6 +1,7 @@
-import React, {useContext, useState} from 'react';
-import { WhiteCard, Container, Input, Button } from '../../common/Common.styles';
-import {LoginContext} from "../LoginContext";
+import React, { useContext, useState } from 'react';
+import { WhiteCard, Container, Input } from '../../common/Common.styles';
+import { LoginContext } from '../LoginContext';
+import Button from "../../common/Button";
 
 const Login = () => {
   const { user, setUser } = useContext(LoginContext);
@@ -24,15 +25,15 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <Button
+          title="Log in"
+          type="dark"
           onClick={() => {
             // backend api for login with username and password
             // place token in localStorage
             // after 200 place in setUser username and token
             console.log(user);
           }}
-        >
-          log in
-        </Button>
+        />
       </WhiteCard>
     </Container>
   )

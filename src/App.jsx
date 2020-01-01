@@ -1,6 +1,6 @@
 import React from 'react';
 import AuthRouter from './app/router';
-import {LoginProvider} from "./app/components/authentication/LoginContext";
+import { LoginProvider } from './app/components/authentication/LoginContext';
 
 const App = () => {
   return (
@@ -8,6 +8,6 @@ const App = () => {
       <AuthRouter />
     </LoginProvider>
   );
-}
+};
 
 export default App;

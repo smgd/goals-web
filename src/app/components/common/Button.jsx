@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import ButtonWrapper from "./Button.styles";
+import React from 'react';
+import ButtonWrapper from './Button.styles';
 
-const Button = ({ title, style, onClick }) => {
+const Button = ({ title, type, onClick }) => {
 
   const theme = {
     light: {
@@ -17,7 +17,7 @@ const Button = ({ title, style, onClick }) => {
   };
 
   return (
-    <ButtonWrapper onClick={onClick} theme={theme[style]}>
+    <ButtonWrapper onClick={onClick} theme={theme[type]}>
       <ButtonWrapper.Title>{title}</ButtonWrapper.Title>
     </ButtonWrapper>
   )
@@ -25,7 +25,7 @@ const Button = ({ title, style, onClick }) => {
 
 Button.defaultProps = {
   title: '',
-  style: 'light',
+  type: 'light',
   onClick: () => {},
 };
 

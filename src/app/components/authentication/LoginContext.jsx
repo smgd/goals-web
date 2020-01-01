@@ -1,4 +1,4 @@
-import React, {createContext, useState} from "react";
+import React, { createContext, useState } from 'react';
 
 
 const LoginContext = createContext({});
@@ -15,10 +15,10 @@ const LoginProvider = (props) => {
   const [ user, setUser ] = useState(fetchUser);
 
     return (
-      <LoginContext.Provider value={{user, setUser }}>
+      <LoginContext.Provider value={{ user, setUser }}>
         {props.children}
       </LoginContext.Provider>
     );
 };
 
-export { LoginContext, LoginProvider };
+export { LoginContext, LoginProvider }
