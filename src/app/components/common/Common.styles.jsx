@@ -1,5 +1,16 @@
 import styled from 'styled-components';
 
+export const H1 = styled('h1')`
+  font-family: Open Sans, sans-serif;
+  font-size: 24px;
+`;
+
+export const Row = styled('div')`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
 export const Container = styled('div')`
   background-color: #8DC26F;
   position: fixed;
@@ -17,6 +28,7 @@ export const WhiteCard = styled('div')`
   margin: auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: #fff;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 `;
@@ -41,7 +53,5 @@ export const Button = styled('button')`
   padding: 15px;
   color: #FFFFFF;
   font-size: 14px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
   cursor: pointer;
 `;

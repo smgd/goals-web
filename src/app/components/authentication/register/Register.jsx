@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { WhiteCard, Container, Input, Button } from '../common/styles';
-import { ValidationError } from './style';
+import { WhiteCard, Container, Input, Button } from '../../common/Common.styles';
+import { ValidationError } from './Register.styles';
 
 
 const Register = () => {
