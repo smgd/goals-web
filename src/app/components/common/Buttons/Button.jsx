@@ -2,17 +2,16 @@ import React from 'react';
 import ButtonWrapper from './Button.styles';
 
 const Button = ({ title, type, onClick }) => {
-
   const theme = {
     light: {
-      font: "#4CAF50",
-      border: "#4CAF50",
-      background: "#FFFFFF",
+      font: '#4CAF50',
+      border: '#4CAF50',
+      background: '#FFFFFF',
     },
     dark: {
-      font: "#FFFFFF",
-      border: "#4CAF50",
-      background: "#4CAF50",
+      font: '#FFFFFF',
+      border: '#4CAF50',
+      background: '#4CAF50',
     },
   };
 
@@ -20,7 +19,7 @@ const Button = ({ title, type, onClick }) => {
     <ButtonWrapper onClick={onClick} theme={theme[type]}>
       <ButtonWrapper.Title>{title}</ButtonWrapper.Title>
     </ButtonWrapper>
-  )
+  );
 };
 
 Button.defaultProps = {
