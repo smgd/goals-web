@@ -18,7 +18,7 @@ const AuthPage = () => (
   <Container>
     <WhiteCard>
       <Header>Goals</Header>
-      <Paragraph>Please login to continue</Paragraph>
+      <Paragraph>Please authorize to continue</Paragraph>
       <Row>
         <Button
           title="Sign in"
