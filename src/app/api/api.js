@@ -1,6 +1,6 @@
-const getBackend = () => {
-  return 'http:localhost:8000/api/'
-}
+const getBackend = () => 'http:localhost:8000/api/';
+
+const TOKEN_NAME = 'kandji-token';
 
 const URL_API = getBackend();
 
@@ -12,11 +12,16 @@ export const apiBase = axiosBase.create({
   },
 });
 
+export const getAuthToken = () => localStorage.getItem(TOKEN_NAME);
+export const hasAuthToken = () => !!getAuthToken();
+export const setAuthToken = (token) => localStorage.setItem(TOKEN_NAME, token);
+export const clearAuthToken = () => localStorage.removeItem(TOKEN_NAME);
+
 export const authHeader = () => (hasAuthToken() ? {
   Authorization: `${getAuthToken()}`,
 } : {});
 
-const authenticatedRequest = props => apiBase({
+const authenticatedRequest = (props) => apiBase({
   ...props,
   headers: {
     ...authHeader(),
@@ -24,14 +29,7 @@ const authenticatedRequest = props => apiBase({
   },
 });
 
-export const api = url => ({
-  get: params => authenticatedRequest({ method: 'GET', url, params }),
-  post: data => authenticatedRequest({ method: 'POST', url, data }),
+export const api = (url) => ({
+  get: (params) => authenticatedRequest({ method: 'GET', url, params }),
+  post: (data) => authenticatedRequest({ method: 'POST', url, data }),
 });
-
-const TOKEN_NAME = 'kandji-token';
-
-export const getAuthToken = () => localStorage.getItem(TOKEN_NAME);
-export const hasAuthToken = () => !!getAuthToken();
-export const setAuthToken = token => localStorage.setItem(TOKEN_NAME, token);
-export const clearAuthToken = () => localStorage.removeItem(TOKEN_NAME);

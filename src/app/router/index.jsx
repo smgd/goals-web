@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
-import { Route, Switch, Router, Redirect } from 'react-router-dom';
+import {
+  Route, Switch, Router, Redirect,
+} from 'react-router-dom';
 import history from './history';
 import Login from '../components/authentication/login/Login';
 import Register from '../components/authentication/register/Register';
@@ -11,16 +13,14 @@ import { LoginContext } from '../components/authentication/LoginContext';
 const PrivateRoute = ({ user, component: Component, ...rest }) => {
   const { username, token } = user;
   if (!username && !token) {
-    return <Redirect to="/" />
-  } 
+    return <Redirect to="/" />;
+  }
   return (
-  <Route
-    {...rest}
-    render={(props) => {
-      return <Component {...props} user={user} />;
-    }}
-  />
-  )
+    <Route
+      {...rest}
+      render={(props) => <Component {...props} user={user} />}
+    />
+  );
 };
 
 const AuthRouter = () => {

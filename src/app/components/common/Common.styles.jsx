@@ -28,13 +28,22 @@ export const WhiteCard = styled('div')`
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 `;
 
-export const Input = styled('input')`
-  outline: 0;
-  background: #f2f2f2;
-  width: 100%;
-  border: 0;
-  margin: 0 0 15px;
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 14px;
+export const ModalCard = styled('div')`
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  width: 350px;
+  height: min-content;
+  padding: 25px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+`;
+
+export const Link = styled('a')`
+  color: darkblue;
+  cursor: pointer;
 `;
