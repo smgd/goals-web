@@ -1,5 +1,4 @@
 import React from 'react';
-import history from '../../router/history'
 
 const Dashboard = (props) => {
   const { user } = props;

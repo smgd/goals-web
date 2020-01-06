@@ -9,7 +9,7 @@ const LoginProvider = (props) => {
     username: null,
     token: null,
   });
-  const [ isUserLoading, setIsUserLoading] = useState(true)
+  const [ isUserLoading, setIsUserLoading] = useState(true);
 
   useEffect(() => {
     Promise.resolve(
@@ -17,9 +17,9 @@ const LoginProvider = (props) => {
         .then(resp => setUser(prev => ({
           ...prev,
           username: resp.username
-        })))
-        .finally(() => setIsUserLoading(false)))
-  }, [])
+        }))))
+        .finally(() => setIsUserLoading(false))
+  }, []);
 
   return (
     <LoginContext.Provider value={{ user, setUser, isLoading: isUserLoading }}>
