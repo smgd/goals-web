@@ -11,9 +11,9 @@ import { LoginContext } from '../components/authentication/LoginContext';
 
 
 const PrivateRoute = ({ user, component: Component, ...rest }) => {
-  const { username, token } = user;
-  if (!username && !token) {
-    return <Redirect to="/" />;
+  const { username } = user;
+  if (!username) {
+    return <Redirect to="/" />
   }
   return (
     <Route
@@ -24,8 +24,8 @@ const PrivateRoute = ({ user, component: Component, ...rest }) => {
 };
 
 const AuthRouter = () => {
-  const { user } = useContext(LoginContext);
-  return (
+  const { user, isUserLoading } = useContext(LoginContext);
+  return (isUserLoading ? <div>vvvvvvvvv</div> :
     <Router history={history}>
       <Switch>
         <Route path="/login" component={Login} />

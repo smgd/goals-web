@@ -1,19 +1,28 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
+import { fetchUser } from './api';
 
 
 const LoginContext = createContext({});
 
-const fetchUser = () =>
-  // backend api for init user with localStorage token
-  ({
+const LoginProvider = (props) => {
+  const [ user, setUser ] = useState({
     username: null,
     token: null,
   });
-const LoginProvider = (props) => {
-  const [user, setUser] = useState(fetchUser);
+  const [ isUserLoading, setIsUserLoading] = useState(true)
+
+  useEffect(() => {
+    Promise.resolve(
+      fetchUser()
+        .then(resp => setUser(prev => ({
+          ...prev,
+          username: resp.username
+        })))
+        .finally(() => setIsUserLoading(false)))
+  }, [])
 
   return (
-    <LoginContext.Provider value={{ user, setUser }}>
+    <LoginContext.Provider value={{ user, setUser, isLoading: isUserLoading }}>
       {props.children}
     </LoginContext.Provider>
   );
