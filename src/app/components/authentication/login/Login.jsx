@@ -63,6 +63,8 @@ const Login = () => {
                     ...prev,
                       username: username
                   }));
+
+                  history.push('/dashboard');
                 })
             }}
           />
