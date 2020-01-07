@@ -8,21 +8,27 @@ const LoginProvider = (props) => {
   const [ user, setUser ] = useState({
     username: null,
     token: null,
+    isFetched: false,
   });
-  const [ isUserLoading, setIsUserLoading] = useState(true);
 
   useEffect(() => {
-    Promise.resolve(
-      fetchUser()
-        .then(resp => setUser(prev => ({
+    fetchUser()
+      .then(resp => {
+        const { username } = resp;
+        setUser(prev => ({
           ...prev,
-          username: resp.username
-        }))))
-        .finally(() => setIsUserLoading(false))
+          username: username,
+          isFetched: true,
+        }))
+      })
+      .catch(() => setUser(prev => ({
+        ...prev,
+        isFetched: true,
+      })))
   }, []);
 
   return (
-    <LoginContext.Provider value={{ user, setUser, isLoading: isUserLoading }}>
+    <LoginContext.Provider value={{ user, setUser }}>
       {props.children}
     </LoginContext.Provider>
   );

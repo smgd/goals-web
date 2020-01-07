@@ -19,6 +19,11 @@ const Paragraph = styled(Fonts.Paragraph)`
 
 const Login = () => {
   const { user, setUser } = useContext(LoginContext);
+
+  if (user.username) {
+    history.push('/dashboard');
+  }
+
   const { modal, setModal, Modals } = useContext(ModalContext);
 
   const [username, setUsername] = useState(user.username);

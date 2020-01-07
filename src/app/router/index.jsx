@@ -24,8 +24,8 @@ const PrivateRoute = ({ user, component: Component, ...rest }) => {
 };
 
 const AuthRouter = () => {
-  const { user, isUserLoading } = useContext(LoginContext);
-  return (isUserLoading ? <div>vvvvvvvvv</div> :
+  const { user } = useContext(LoginContext);
+  return (!user.isFetched ? <div>Loading...</div> :
     <Router history={history}>
       <Switch>
         <Route path="/login" component={Login} />

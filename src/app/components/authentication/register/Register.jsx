@@ -16,6 +16,10 @@ const Register = () => {
   const [passwordAgain, setPasswordAgain] = useState(null);
   const [validationErrorText, setValidationErrorText] = useState(null);
 
+  if (user.username) {
+    history.push('/dashboard');
+  }
+
   const register = () => {
     if (password !== passwordAgain) {
       setValidationErrorText('Passwords should match!!');
