@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, {useContext, useState} from 'react';
 import { WhiteCard, Container, Row } from '../../common/Common.styles';
 import { ValidationError } from './Register.styles';
 import Button from '../../common/Buttons/Button';
 import Input from '../../common/Inputs/Input';
 import history from '../../../router/history';
+import { registerUser } from "../api";
+import { setAuthToken } from "../../../api/api";
+import { LoginContext } from "../LoginContext";
 
 const Register = () => {
+  const { user, setUser } = useContext(LoginContext);
   const [username, setUsername] = useState(null);
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
@@ -19,7 +23,18 @@ const Register = () => {
     }
 
     setValidationErrorText(null);
-    console.log('blabla');
+    registerUser(username, password, email)
+      .then((data) => {
+        const { token } = data;
+        setAuthToken(token);
+        setUser(prev => ({
+          ...prev,
+          username: username
+        }));
+
+        history.push('/dashboard');
+      })
+      .catch(() => console.log('blabla'))
   };
 
   return (

@@ -7,6 +7,8 @@ import Input from '../../common/Inputs/Input';
 import history from '../../../router/history';
 import Fonts from '../../common/Fonts.styles';
 import { ModalContext } from '../../common/Modals/ModalContext';
+import { loginUser } from '../api';
+import { setAuthToken } from "../../../api/api";
 
 
 const Paragraph = styled(Fonts.Paragraph)`
@@ -50,10 +52,18 @@ const Login = () => {
             title="Sign in"
             type="dark"
             onClick={() => {
-              // backend api for login with username and password
-              // place token in localStorage
-              // after 200 place in setUser username and token
-              console.log(user);
+              loginUser(username, password)
+                .catch(() => {
+                  console.log('blabla');
+                })
+                .then((data) => {
+                  const { token } = data;
+                  setAuthToken(token);
+                  setUser(prev => ({
+                    ...prev,
+                      username: username
+                  }));
+                })
             }}
           />
         </Row>
