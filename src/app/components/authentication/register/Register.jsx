@@ -1,5 +1,5 @@
-import React, {useContext, useState} from 'react';
-import { WhiteCard, Container, Row } from '../../common/Common.styles';
+import React, { useContext, useState } from 'react';
+import { WhiteCard, Row } from '../../common/Common.styles';
 import { ValidationError } from './Register.styles';
 import Button from '../../common/Buttons/Button';
 import Input from '../../common/Inputs/Input';
@@ -49,64 +49,62 @@ const Register = () => {
   };
 
   return (
-    <Container>
-      <WhiteCard>
-        <Input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+    <WhiteCard>
+      <Input
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <Input
+        type="text"
+        placeholder="Username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <Input
+        type="text"
+        placeholder="First Name"
+        value={firstName}
+        onChange={(e) => setFirstName(e.target.value)}
+      />
+      <Input
+        type="text"
+        placeholder="Last Name"
+        value={lastName}
+        onChange={(e) => setLastName(e.target.value)}
+      />
+      <Input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <Input
+        type="password"
+        placeholder="Confirm Password"
+        value={passwordAgain}
+        onChange={(e) => setPasswordAgain(e.target.value)}
+      />
+      {validationErrorText
+            && (
+            <ValidationError>
+              {validationErrorText}
+            </ValidationError>
+            )}
+      <Row>
+        <Button
+          title="Cancel"
+          type="light"
+          onClick={() => history.push('/')}
         />
-        <Input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+        <Button
+          title="Sign up"
+          type="dark"
+          onClick={register}
         />
-        <Input
-          type="text"
-          placeholder="First Name"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-        <Input
-          type="text"
-          placeholder="Last Name"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-        />
-        <Input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <Input
-          type="password"
-          placeholder="Confirm Password"
-          value={passwordAgain}
-          onChange={(e) => setPasswordAgain(e.target.value)}
-        />
-        {validationErrorText
-              && (
-              <ValidationError>
-                {validationErrorText}
-              </ValidationError>
-              )}
-        <Row>
-          <Button
-            title="Cancel"
-            type="light"
-            onClick={() => history.push('/')}
-          />
-          <Button
-            title="Sign up"
-            type="dark"
-            onClick={register}
-          />
-        </Row>
-      </WhiteCard>
-    </Container>
+      </Row>
+    </WhiteCard>
   );
 };
 

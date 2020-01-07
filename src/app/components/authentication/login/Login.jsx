@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
-import {WhiteCard, Container, Row, Link} from '../../common/Common.styles';
+import { WhiteCard, Row, Link } from '../../common/Common.styles';
 import { LoginContext } from '../LoginContext';
 import Button from '../../common/Buttons/Button';
 import Input from '../../common/Inputs/Input';
@@ -30,7 +30,7 @@ const Login = () => {
   const [password, setPassword] = useState(user.password);
 
   return (
-    <Container>
+    <React.Fragment>
       {modal || null}
       <WhiteCard>
         <Input
@@ -82,7 +82,7 @@ const Login = () => {
           </Link>
         </Paragraph>
       </WhiteCard>
-    </Container>
+    </React.Fragment>
   );
 };
 
