@@ -11,6 +11,8 @@ import { LoginContext } from "../LoginContext";
 const Register = () => {
   const { user, setUser } = useContext(LoginContext);
   const [username, setUsername] = useState(null);
+  const [firstName, setFirstName] = useState(null);
+  const [lastName, setLastName] = useState(null);
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [passwordAgain, setPasswordAgain] = useState(null);
@@ -21,13 +23,18 @@ const Register = () => {
   }
 
   const register = () => {
+    if (!firstName || !lastName || !email || !username) {
+      setValidationErrorText('Fill all required fields please!');
+      return;
+    }
+
     if (password !== passwordAgain) {
       setValidationErrorText('Passwords should match!!');
       return;
     }
 
     setValidationErrorText(null);
-    registerUser(username, password, email)
+    registerUser(username, password, email, firstName, lastName)
       .then((data) => {
         const { token } = data;
         setAuthToken(token);
@@ -55,6 +62,18 @@ const Register = () => {
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+        />
+        <Input
+          type="text"
+          placeholder="First Name"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+        <Input
+          type="text"
+          placeholder="Last Name"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
         />
         <Input
           type="password"

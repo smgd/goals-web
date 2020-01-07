@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const ButtonWrapper = styled('button')`
   width: 150px;
   height: 40px;
-  border-radius: 5px;
+  border-radius: 2px;
   color: ${(props) => props.theme.font};
   border: 1px solid ${(props) => props.theme.border};
   background: ${(props) => props.theme.background};

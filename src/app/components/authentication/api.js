@@ -10,9 +10,11 @@ export const loginUser = (username, password) => api('login').post({
 })
   .then((resp) => resp.data);
 
-export const registerUser = (username, password, email) => api('register').post({
+export const registerUser = (username, password, email, firstName, lastName) => api('register').post({
   username: username,
   password: password,
   email: email,
+  first_name: firstName,
+  last_name: lastName,
 })
   .then((resp) => resp.data);
