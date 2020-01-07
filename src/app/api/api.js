@@ -3,7 +3,7 @@ import { default as axiosBase } from 'axios';
 
 const getBackend = () => {
   return 'http://localhost:8000/api/'
-}
+};
 
 const URL_API = getBackend();
 
@@ -30,7 +30,7 @@ export const api = (url) => ({
 
 const TOKEN_NAME = 'tokenpoken';
 
-export const getAuthToken = () => localStorage.getItem(TOKEN_NAME)
+export const getAuthToken = () => localStorage.getItem(TOKEN_NAME);
 export const hasAuthToken = () => !!getAuthToken();
 export const setAuthToken = token => localStorage.setItem(TOKEN_NAME, token);
 export const clearAuthToken = () => localStorage.removeItem(TOKEN_NAME);
