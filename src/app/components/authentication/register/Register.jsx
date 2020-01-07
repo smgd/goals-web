@@ -4,7 +4,7 @@ import { ValidationError } from './Register.styles';
 import Button from '../../common/Buttons/Button';
 import Input from '../../common/Inputs/Input';
 import history from '../../../router/history';
-import { registerUser } from "../api";
+import { fetchAndSetUser, registerUser } from "../api";
 import { setAuthToken } from "../../../api/api";
 import { LoginContext } from "../LoginContext";
 
@@ -38,11 +38,7 @@ const Register = () => {
       .then((data) => {
         const { token } = data;
         setAuthToken(token);
-        setUser(prev => ({
-          ...prev,
-          username: username
-        }));
-
+        fetchAndSetUser(setUser);
         history.push('/dashboard');
       })
       .catch(() => console.log('blabla'))

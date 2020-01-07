@@ -2,8 +2,8 @@ import { default as axiosBase } from 'axios';
 
 
 const getBackend = () => {
-  // return 'https://ilz.pw/api/';
-  return 'http://localhost:8000/api/';
+  return 'https://ilz.pw/api/';
+  // return 'http://localhost:8000/api/';
   // return process.env.BACKEND_URL; TODO
 };
 

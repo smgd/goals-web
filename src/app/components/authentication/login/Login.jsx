@@ -7,7 +7,7 @@ import Input from '../../common/Inputs/Input';
 import history from '../../../router/history';
 import Fonts from '../../common/Fonts.styles';
 import { ModalContext } from '../../common/Modals/ModalContext';
-import { loginUser } from '../api';
+import { fetchAndSetUser, loginUser } from '../api';
 import { setAuthToken } from "../../../api/api";
 
 
@@ -64,10 +64,7 @@ const Login = () => {
                 .then((data) => {
                   const { token } = data;
                   setAuthToken(token);
-                  setUser(prev => ({
-                    ...prev,
-                      username: username
-                  }));
+                  fetchAndSetUser(setUser);
 
                   history.push('/dashboard');
                 })

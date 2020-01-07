@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { fetchUser } from './api';
+import { fetchAndSetUser } from './api';
 
 
 const LoginContext = createContext({});
@@ -7,25 +7,13 @@ const LoginContext = createContext({});
 const LoginProvider = (props) => {
   const [ user, setUser ] = useState({
     username: null,
-    token: null,
+    firstName: null,
+    lastName: null,
+    email: null,
     isFetched: false,
   });
 
-  useEffect(() => {
-    fetchUser()
-      .then(resp => {
-        const { username } = resp;
-        setUser(prev => ({
-          ...prev,
-          username: username,
-          isFetched: true,
-        }))
-      })
-      .catch(() => setUser(prev => ({
-        ...prev,
-        isFetched: true,
-      })))
-  }, []);
+  useEffect(() => fetchAndSetUser(setUser), []);
 
   return (
     <LoginContext.Provider value={{ user, setUser }}>

@@ -11,6 +11,11 @@ const Dashboard = () => {
     <React.Fragment>
       <WhiteCard>
         <h2>Hi, {user.username}!</h2>
+        <p>
+          Your name: {user.firstName} {user.lastName}
+          <br/>
+          Your email: {user.email}
+        </p>
         <Button
           title="Log Out"
           type="dark"
