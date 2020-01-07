@@ -82,12 +82,11 @@ const Register = () => {
         value={passwordAgain}
         onChange={(e) => setPasswordAgain(e.target.value)}
       />
-      {validationErrorText
-            && (
-            <ValidationError>
-              {validationErrorText}
-            </ValidationError>
-            )}
+      {validationErrorText &&
+        <ValidationError>
+          {validationErrorText}
+        </ValidationError>
+      }
       <Row>
         <Button
           title="Cancel"
