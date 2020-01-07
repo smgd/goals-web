@@ -8,6 +8,7 @@ import Register from '../components/authentication/register/Register';
 import Dashboard from '../components/dashboard/Dashboard';
 import AuthPage from '../components/authentication/AuthPage';
 import { LoginContext } from '../components/authentication/LoginContext';
+import { Container, Loader } from "../components/common/Common.styles";
 
 
 const PrivateRoute = ({ user, component: Component, ...rest }) => {
@@ -25,7 +26,7 @@ const PrivateRoute = ({ user, component: Component, ...rest }) => {
 
 const AuthRouter = () => {
   const { user } = useContext(LoginContext);
-  return (!user.isFetched ? <div>Loading...</div> :
+  return (!user.isFetched ? <Container><Loader /></Container> :
     <Router history={history}>
       <Switch>
         <Route path="/login" component={Login} />
