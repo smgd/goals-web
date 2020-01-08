@@ -14,6 +14,7 @@ const Dashboard = () => {
         <p>
           Your name: {user.firstName} {user.lastName}
           <br/>
+          <br/>
           Your email: {user.email}
         </p>
         <Button
