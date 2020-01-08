@@ -8,7 +8,7 @@ import history from '../../../router/history';
 import Fonts from '../../common/Fonts.styles';
 import { ModalContext } from '../../common/Modals/ModalContext';
 import { fetchAndSetUser, loginUser } from '../api';
-import { setAuthToken } from "../../../api/api";
+import { clearAuthToken, setAuthToken } from "../../../api/api";
 
 
 const Paragraph = styled(Fonts.Paragraph)`
@@ -73,6 +73,7 @@ const Login = () => {
                   history.push('/dashboard');
                 })
                 .catch(() => {
+                  clearAuthToken();
                   setValidationErrorText('Incorrect username or password')
                 })
             }}
