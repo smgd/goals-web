@@ -25,7 +25,7 @@ const AuthPage = () => {
   return (
     <Container>
       <WhiteCard>
-        <Header>Goals</Header>
+        <Header>Goals bla bla</Header>
         <Paragraph>Please authorize to continue</Paragraph>
         <Row>
           <Button
