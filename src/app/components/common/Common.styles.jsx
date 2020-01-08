@@ -7,7 +7,7 @@ export const Row = styled('div')`
 `;
 
 export const Container = styled('div')`
-  background-color: #8DC26F;
+  background: linear-gradient(0deg, #B6FE8D 0.67%, rgba(141, 194, 111, 0) 100%), #80B065;
   position: fixed;
   top: 0;
   left: 0;
