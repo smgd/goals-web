@@ -15,6 +15,8 @@ const Dashboard = () => {
           Your name: {user.firstName} {user.lastName}
           <br/>
           Your email: {user.email}
+          <br/>
+          Bla bla
         </p>
         <Button
           title="Log Out"
