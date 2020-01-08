@@ -68,7 +68,7 @@ const Login = () => {
                   setValidationErrorText('Incorrect username or password')
                 })
                 .then((data) => {
-                  setValidationErrorText(null)
+                  setValidationErrorText(null);
                   const { token } = data;
                   setAuthToken(token);
                   fetchAndSetUser(setUser);
