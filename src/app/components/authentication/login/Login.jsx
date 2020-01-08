@@ -28,7 +28,7 @@ const Login = () => {
 
   const [username, setUsername] = useState(user.username);
   const [password, setPassword] = useState(user.password);
-  const [validationErrorText, setValidationErrorText] = useState('test');
+  const [validationErrorText, setValidationErrorText] = useState(null);
 
   return (
     <React.Fragment>
