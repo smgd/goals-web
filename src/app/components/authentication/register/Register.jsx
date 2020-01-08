@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { WhiteCard, Row } from '../../common/Common.styles';
-import { ValidationError } from './Register.styles';
+import { WhiteCard, Row, ValidationError } from '../../common/Common.styles';
 import Button from '../../common/Buttons/Button';
 import Input from '../../common/Inputs/Input';
 import history from '../../../router/history';

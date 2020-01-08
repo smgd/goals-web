@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
-import { WhiteCard, Row, Link } from '../../common/Common.styles';
+import { WhiteCard, Row, Link, ValidationError } from '../../common/Common.styles';
 import { LoginContext } from '../LoginContext';
 import Button from '../../common/Buttons/Button';
 import Input from '../../common/Inputs/Input';
@@ -28,6 +28,7 @@ const Login = () => {
 
   const [username, setUsername] = useState(user.username);
   const [password, setPassword] = useState(user.password);
+  const [validationErrorText, setValidationErrorText] = useState(null);
 
   return (
     <React.Fragment>
@@ -47,6 +48,11 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        {validationErrorText &&
+          <ValidationError>
+            {validationErrorText}
+          </ValidationError>
+        }
         <Row>
           <Button
             title="Cancel"
@@ -59,9 +65,10 @@ const Login = () => {
             onClick={() => {
               loginUser(username, password)
                 .catch(() => {
-                  console.log('blabla');
+                  setValidationErrorText('Incorrect username or password')
                 })
                 .then((data) => {
+                  setValidationErrorText(null)
                   const { token } = data;
                   setAuthToken(token);
                   fetchAndSetUser(setUser);

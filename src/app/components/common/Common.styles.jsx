@@ -63,3 +63,10 @@ export const Loader = styled('div')`
     100% { transform: rotate(360deg); }
   } 
 `;
+
+export const ValidationError = styled('div')`
+  color: red;
+  font-size: 12px;
+  margin-bottom: 15px;
+`;
+
