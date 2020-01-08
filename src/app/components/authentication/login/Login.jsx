@@ -64,9 +64,6 @@ const Login = () => {
             type="dark"
             onClick={() => {
               loginUser(username, password)
-                .catch(() => {
-                  setValidationErrorText('Incorrect username or password')
-                })
                 .then((data) => {
                   setValidationErrorText(null);
                   const { token } = data;
@@ -74,6 +71,9 @@ const Login = () => {
                   fetchAndSetUser(setUser);
 
                   history.push('/dashboard');
+                })
+                .catch(() => {
+                  setValidationErrorText('Incorrect username or password')
                 })
             }}
           />
