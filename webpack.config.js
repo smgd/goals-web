@@ -23,6 +23,18 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [{
+          loader: 'file-loader',
+          options: {}
+        }]
+      }
     ],
+  },
+  devServer: {
+    publicPath: '/',
+    contentBase: './public',
+    hot: true,
   },
 };
