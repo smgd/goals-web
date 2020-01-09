@@ -1,13 +1,19 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { WhiteCard, Container, Row } from '../common/Common.styles';
 import Fonts from '../common/Fonts.styles';
 import Button from '../common/Buttons/Button';
 import history from '../../router/history';
-import {LoginContext} from "./LoginContext";
+import { LoginContext } from "./LoginContext";
+import logo from '../../../assets/images/caribou.png';
 
 const Header = styled(Fonts.H1)`
   margin-bottom: 10px;
+`;
+
+const Logo = styled('img')`
+  width: 100px;
+  height: 100px;
 `;
 
 const Paragraph = styled(Fonts.Paragraph)`
@@ -25,7 +31,10 @@ const AuthPage = () => {
   return (
     <Container>
       <WhiteCard>
-        <Header>Goals</Header>
+        <Logo
+          src={logo}
+        />
+        <Header>Caribou</Header>
         <Paragraph>Please authorize to continue</Paragraph>
         <Row>
           <Button
