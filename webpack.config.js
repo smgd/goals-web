@@ -35,6 +35,12 @@ module.exports = {
   devServer: {
     publicPath: '/',
     contentBase: './public',
+    // port: 3000,
+    // writeToDisk: true,
+    // proxy: {
+    //   '/': 'http://localhost:8080',
+    // },
     hot: true,
+    historyApiFallback: true,
   },
 };

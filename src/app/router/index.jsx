@@ -8,13 +8,14 @@ import Register from '../components/authentication/register/Register';
 import Dashboard from '../components/dashboard/Dashboard';
 import AuthPage from '../components/authentication/AuthPage';
 import { LoginContext } from '../components/authentication/LoginContext';
-import { Loader } from "../components/common/Common.styles";
+import { Loader } from '../components/common/Common.styles';
+import CreateList from '../components/dashboard/CreateList';
 
 
 const PrivateRoute = ({ user, component: Component, ...rest }) => {
   const { username } = user;
   if (!username) {
-    return <Redirect to="/" />
+    return <Redirect to="/" />;
   }
   return (
     <Route
@@ -26,21 +27,26 @@ const PrivateRoute = ({ user, component: Component, ...rest }) => {
 
 const AuthRouter = () => {
   const { user } = useContext(LoginContext);
-  return (!user.isFetched ? <Loader /> :
-    <Router history={history}>
-      <Switch>
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
+  return (!user.isFetched ? <Loader />
+    : (
+      <Router history={history}>
+        <Switch>
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          {/* test route */}
+          <Route path="/test-list" component={CreateList} />
+          {/* test route */}
 
-        <PrivateRoute
-          path="/dashboard"
-          component={Dashboard}
-          user={user}
-        />
+          <PrivateRoute
+            path="/dashboard"
+            component={Dashboard}
+            user={user}
+          />
 
-        <Route path="/" component={AuthPage} />
-      </Switch>
-    </Router>
+          <Route path="/" component={AuthPage} />
+        </Switch>
+      </Router>
+    )
   );
 };
 

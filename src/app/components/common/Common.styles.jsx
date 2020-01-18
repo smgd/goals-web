@@ -69,4 +69,3 @@ export const ValidationError = styled('div')`
   font-size: 12px;
   margin-bottom: 15px;
 `;
-
