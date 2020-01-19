@@ -9,7 +9,7 @@ import Dashboard from '../components/dashboard/Dashboard';
 import AuthPage from '../components/authentication/AuthPage';
 import { LoginContext } from '../components/authentication/LoginContext';
 import { Loader } from '../components/common/Common.styles';
-import CreateList from '../components/dashboard/CreateList';
+import GoalsList from '../components/dashboard/GoalsList';
 
 
 const PrivateRoute = ({ user, component: Component, ...rest }) => {
@@ -34,7 +34,7 @@ const AuthRouter = () => {
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           {/* test route */}
-          <Route path="/test-list" component={CreateList} />
+          <Route path="/test-list" component={GoalsList} />
           {/* test route */}
 
           <PrivateRoute
