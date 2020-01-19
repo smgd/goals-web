@@ -10,6 +10,7 @@ import AuthPage from '../components/authentication/AuthPage';
 import { LoginContext } from '../components/authentication/LoginContext';
 import { Loader } from '../components/common/Common.styles';
 import GoalsList from '../components/dashboard/GoalsList';
+import Page404 from "../components/Page404";
 
 
 const PrivateRoute = ({ user, component: Component, ...rest }) => {
@@ -31,19 +32,21 @@ const AuthRouter = () => {
     : (
       <Router history={history}>
         <Switch>
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/register" exact component={Register} />
           {/* test route */}
-          <Route path="/test-list" component={GoalsList} />
+          <Route path="/test-list" exact component={GoalsList} />
           {/* test route */}
 
           <PrivateRoute
             path="/dashboard"
+            exact
             component={Dashboard}
             user={user}
           />
 
-          <Route path="/" component={AuthPage} />
+          <Route path="/" exact component={AuthPage} />
+          <Route component={Page404} />
         </Switch>
       </Router>
     )
