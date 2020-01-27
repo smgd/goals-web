@@ -14,6 +14,7 @@ const Header = styled(Fonts.H1)`
 const Logo = styled('img')`
   width: 100px;
   height: 100px;
+  filter: brightness(0);
 `;
 
 const Paragraph = styled(Fonts.Paragraph)`

@@ -5,7 +5,8 @@ const ButtonWrapper = styled('button')`
   height: 40px;
   border-radius: 2px;
   color: ${(props) => props.theme.font};
-  border: 1px solid ${(props) => props.theme.border};
+  border: ${(props) => props.theme.border};;
+  box-shadow: 0 4px 4px #F3F3F3;
   background: ${(props) => props.theme.background};
   cursor: pointer;
   margin: 0 10px;

@@ -1,12 +1,11 @@
 import React, { createContext, useState, useEffect } from 'react';
 import { fetchAndSetUser } from './api';
 
-
 const LoginContext = createContext({});
 
-const LoginProvider = (props) => {
-  const [ user, setUser ] = useState({
-    username: null,
+const LoginProvider = props => {
+  const [user, setUser] = useState({
+    username: 'test',
     firstName: null,
     lastName: null,
     email: null,

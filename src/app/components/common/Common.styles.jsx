@@ -7,7 +7,7 @@ export const Row = styled('div')`
 `;
 
 export const Container = styled('div')`
-  background: linear-gradient(0deg, #B6FE8D 0.67%, rgba(141, 194, 111, 0) 100%), #80B065;
+  background: #E9EBED;
   position: fixed;
   top: 0;
   left: 0;
@@ -15,6 +15,7 @@ export const Container = styled('div')`
   height: 100%;
   display: flex;
   justify-content: center;
+  overflow: auto;
 `;
 
 export const WhiteCard = styled('div')`

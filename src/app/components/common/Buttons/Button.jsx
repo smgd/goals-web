@@ -4,14 +4,14 @@ import ButtonWrapper from './Button.styles';
 const Button = ({ title, type, onClick }) => {
   const theme = {
     light: {
-      font: '#4CAF50',
-      border: '#4CAF50',
-      background: '#FFFFFF',
+      font: '#FFFFFF',
+      border: 'none',
+      background: 'linear-gradient(119.36deg, #FEBD81 0%, rgba(255, 255, 255, 0) 100%), #FF9091',
     },
     dark: {
-      font: '#FFFFFF',
-      border: '#4CAF50',
-      background: '#4CAF50',
+      font: '#FEBD81',
+      border: '1px solid #FEBD81',
+      background: '#FFFFFF',
     },
   };
 

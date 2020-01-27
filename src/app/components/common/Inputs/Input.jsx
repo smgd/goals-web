@@ -1,13 +1,11 @@
 import React from 'react';
 import InputWrapper from './Input.styles';
 
-const Input = ({
-  placeholder, type, styles, value, onChange,
-}) => {
+const Input = ({ placeholder, type, styles, value, onChange }) => {
   const theme = {
     light: {
-      border: '#7E7E7E',
-      background: '#F2F2F2',
+      border: '#F3F3F3',
+      background: '#F3F3F3',
     },
   };
 

@@ -9,8 +9,7 @@ import Dashboard from '../components/dashboard/Dashboard';
 import AuthPage from '../components/authentication/AuthPage';
 import { LoginContext } from '../components/authentication/LoginContext';
 import { Loader } from '../components/common/Common.styles';
-import GoalsList from '../components/dashboard/GoalsList';
-import Page404 from "../components/Page404";
+import AreasContainer from "../components/dashboard/Areas/Areas.container";
 
 
 const PrivateRoute = ({ user, component: Component, ...rest }) => {
@@ -32,21 +31,21 @@ const AuthRouter = () => {
     : (
       <Router history={history}>
         <Switch>
-          <Route path="/login" exact component={Login} />
-          <Route path="/register" exact component={Register} />
-          {/* test route */}
-          <Route path="/test-list" exact component={GoalsList} />
-          {/* test route */}
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
 
           <PrivateRoute
             path="/dashboard"
-            exact
             component={Dashboard}
             user={user}
           />
+          <PrivateRoute
+            path="/areas"
+            component={AreasContainer}
+            user={user}
+          />
 
-          <Route path="/" exact component={AuthPage} />
-          <Route component={Page404} />
+          <Route path="/" component={AuthPage} />
         </Switch>
       </Router>
     )
