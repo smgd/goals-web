@@ -28,6 +28,8 @@ const authenticatedRequest = (props) => apiBase({
 export const api = (url) => ({
   get: (params) => authenticatedRequest({ method: 'GET', url, params }),
   post: (data) => authenticatedRequest({ method: 'POST', url, data }),
+  patch: (data) => authenticatedRequest({ method: 'PATCH', url, data }),
+  delete: () => authenticatedRequest({ method: 'DELETE', url }),
 });
 
 const TOKEN_NAME = 'tokenpoken';
