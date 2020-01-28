@@ -7,6 +7,7 @@ const AreasProvider = props => {
 
   const testAreas = [
     {
+      id: 'xxx',
       name: 'test',
       icon: 'none',
       description: 'test description',
