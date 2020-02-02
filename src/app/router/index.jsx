@@ -46,7 +46,7 @@ const AuthRouter = () => {
             user={user}
           />
 
-          <Route path="/" component={AuthPage} />
+          <Route path="/" exact component={AuthPage} />
           <Route component={Page404} />
         </Switch>
       </Router>
