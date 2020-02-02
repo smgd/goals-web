@@ -6,12 +6,17 @@ import Button from "../../common/Buttons/Button";
 const AreasComponent = () => {
   const { areas, setAreas } = useContext(AreasContext);
 
-  const renderArea = () => {
-    return areas.toString();
+  const renderArea = (area) => {
+    return (
+      <ul>
+        <li>{area.name}</li>
+        <li>{area.description}</li>
+      </ul>
+    );
   };
 
   const renderAreas = () => {
-    return areas.map(() => renderArea())
+    return areas.map((area) => renderArea(area))
   };
 
   return (
