@@ -7,7 +7,8 @@ const AreasWrapper = styled('div')`
   grid-template-areas:
     'title title title button'
     'areas areas areas areas';
-  grid-template-columns: 10% 39% 39% 10%;
+  grid-template-columns: 15% 35% 35% 15%;
+  grid-gap: 0;
 `;
 
 const Title = styled('div')`
