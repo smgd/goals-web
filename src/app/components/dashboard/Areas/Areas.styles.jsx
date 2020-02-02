@@ -2,13 +2,12 @@ import styled from 'styled-components';
 
 const AreasWrapper = styled('div')`
   width: 100%;
-  height: 100%;
   padding: 25px;
   display: grid;
   grid-template-areas:
     'title title title button'
     'areas areas areas areas';
-  grid-template-columns: 10% 40% 40% 10%;
+  grid-template-columns: 10% 39% 39% 10%;
 `;
 
 const Title = styled('div')`
