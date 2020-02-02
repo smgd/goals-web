@@ -10,6 +10,7 @@ import AuthPage from '../components/authentication/AuthPage';
 import { LoginContext } from '../components/authentication/LoginContext';
 import { Loader } from '../components/common/Common.styles';
 import AreasContainer from "../components/dashboard/Areas/Areas.container";
+import Page404 from "../components/Page404";
 
 
 const PrivateRoute = ({ user, component: Component, ...rest }) => {
@@ -46,6 +47,7 @@ const AuthRouter = () => {
           />
 
           <Route path="/" component={AuthPage} />
+          <Route component={Page404} />
         </Switch>
       </Router>
     )

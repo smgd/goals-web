@@ -5,7 +5,7 @@ const LoginContext = createContext({});
 
 const LoginProvider = props => {
   const [user, setUser] = useState({
-    username: 'test',
+    username: null,
     firstName: null,
     lastName: null,
     email: null,
