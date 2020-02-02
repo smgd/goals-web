@@ -21,6 +21,8 @@ const Title = styled('div')`
 
 const Button = styled('div')`
   grid-area: button;
+  display: flex;
+  justify-content: right;
 `;
 
 const Areas = styled('div')`
