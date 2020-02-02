@@ -7,7 +7,7 @@ const AreaComponent = () => {
   const { areas, setAreas } = useContext(AreasContext);
 
   const renderArea = () => {
-
+    return areas.toString();
   };
 
   const renderAreas = () => {
