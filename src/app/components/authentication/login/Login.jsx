@@ -56,12 +56,12 @@ const Login = () => {
         <Row>
           <Button
             title="Cancel"
-            type="light"
+            type="dark"
             onClick={() => history.push('/')}
           />
           <Button
             title="Sign in"
-            type="dark"
+            type="light"
             onClick={() => {
               loginUser(username, password)
                 .then((data) => {

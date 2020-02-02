@@ -89,12 +89,12 @@ const Register = () => {
       <Row>
         <Button
           title="Cancel"
-          type="light"
+          type="dark"
           onClick={() => history.push('/')}
         />
         <Button
           title="Sign up"
-          type="dark"
+          type="light"
           onClick={register}
         />
       </Row>
