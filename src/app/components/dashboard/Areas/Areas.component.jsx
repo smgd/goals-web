@@ -3,7 +3,7 @@ import { AreasContext, AreasProvider } from './Areas.context';
 import AreasWrapper from "./Areas.styles";
 import Button from "../../common/Buttons/Button";
 
-const AreaComponent = () => {
+const AreasComponent = () => {
   const { areas, setAreas } = useContext(AreasContext);
 
   const renderArea = () => {
@@ -31,4 +31,4 @@ const AreaComponent = () => {
   );
 };
 
-export default AreaComponent;
+export default AreasComponent;
