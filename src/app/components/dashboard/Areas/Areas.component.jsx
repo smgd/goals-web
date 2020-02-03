@@ -20,9 +20,9 @@ const AreasComponent = () => {
       </AreasWrapper.Button>
       <AreasWrapper.Areas>
         <Pie
-          areas={areas.map((area, i) => ({
-            weight: 3 + i, // here will be weight set by user
-            id: i, // here will be area id
+          areas={areas.map(area => ({
+            weight: area.weight,
+            id: area.id,
             name: area.name,
           }))}
         />
