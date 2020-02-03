@@ -22,10 +22,10 @@ const Title = styled.h1`
 const Pie = ({ areas, animate }) => {
   const colors = [
     ['#36877F', '#b1d8d4'],
-    ['#CC001F', '#c96877'],
+    ['#CC001F', '#e5c5ca'],
     ['#0CBCF2', '#bbe1ed'],
+    ['#93e884', '#d1efcb'],
     ['#F2930C', '#efd5b1'],
-    ['#BCE3BE', '#d9e0da'],
   ];
 
   const defaultPieData = areas.map((area, i) => ({
