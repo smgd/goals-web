@@ -38,7 +38,6 @@ const Pie = ({ areas, animate }) => {
   const [ pieData, setPieData ] = useState(defaultPieData);
   const [ title, setTitle ] = useState(null);
 
-
   const onMouseOver = (e, props, index) => {
     setPieData(prevState => prevState.map((datum, i) => {
       if (i !== index) {

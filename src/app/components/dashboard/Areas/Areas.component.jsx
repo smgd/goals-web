@@ -25,7 +25,6 @@ const AreasComponent = () => {
             id: i, // here will be area id
             name: area.name,
           }))}
-          animate
         />
       </AreasWrapper.Areas>
     </AreasWrapper>
