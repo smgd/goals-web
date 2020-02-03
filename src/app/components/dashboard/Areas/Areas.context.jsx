@@ -1,21 +1,11 @@
 import React, { createContext, useState, useEffect } from 'react';
-import {fetchAndSetAreas} from "./api";
+import { fetchAndSetAreas } from "./api";
 
 const AreasContext = createContext({});
 
 const AreasProvider = props => {
 
-  const testAreas = [
-    {
-      id: 'xxx',
-      name: 'test',
-      icon: 'none',
-      description: 'test description',
-      isFavourite: false,
-    },
-  ];
-
-  const [areas, setAreas] = useState(testAreas);
+  const [areas, setAreas] = useState(null);
 
   useEffect(() => fetchAndSetAreas(setAreas), []);
 

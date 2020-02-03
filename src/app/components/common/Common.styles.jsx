@@ -51,7 +51,7 @@ export const Link = styled('a')`
 
 export const Loader = styled('div')`
   border: 12px solid #f3f3f3;
-  border-top: 12px solid #9ffc85;
+  border-top: 12px solid #FEBD81;
   border-radius: 50%;
   margin: auto;
   display: flex;

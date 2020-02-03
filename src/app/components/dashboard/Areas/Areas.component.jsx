@@ -1,25 +1,14 @@
-import React, { useContext, useState } from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import { AreasContext, AreasProvider } from './Areas.context';
 import AreasWrapper from "./Areas.styles";
 import Button from "../../common/Buttons/Button";
+import Pie from "../../common/Pie";
+import {Loader} from "../../common/Common.styles";
 
 const AreasComponent = () => {
   const { areas, setAreas } = useContext(AreasContext);
 
-  const renderArea = (area) => {
-    return (
-      <ul>
-        <li>{area.name}</li>
-        <li>{area.description}</li>
-      </ul>
-    );
-  };
-
-  const renderAreas = () => {
-    return areas.map((area) => renderArea(area))
-  };
-
-  return (
+  return (!areas ? <Loader/> :
     <AreasWrapper>
       <AreasWrapper.Title>Your Areas</AreasWrapper.Title>
       <AreasWrapper.Button>
@@ -30,7 +19,14 @@ const AreasComponent = () => {
         />
       </AreasWrapper.Button>
       <AreasWrapper.Areas>
-        {renderAreas()}
+        <Pie
+          areas={areas.map((area, i) => ({
+            weight: 3 + i, // here will be weight set by user
+            id: i, // here will be area id
+            name: area.name,
+          }))}
+          animate
+        />
       </AreasWrapper.Areas>
     </AreasWrapper>
   );
