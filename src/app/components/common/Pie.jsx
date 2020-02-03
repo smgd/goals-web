@@ -14,17 +14,18 @@ const PieWrapper = styled.div`
 `;
 
 const Title = styled.h1`
-  color: #FF9091;
+  color: ${props => props.color};
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.24);
 `;
 
 
 const Pie = ({ areas, animate }) => {
   const colors = [
-    ['#36877F', '#5f877f'],
+    ['#36877F', '#b1d8d4'],
     ['#CC001F', '#c96877'],
-    ['#BCE3BE', '#d9e0da'],
-    ['#F2930C', '#efd5b1'],
     ['#0CBCF2', '#bbe1ed'],
+    ['#F2930C', '#efd5b1'],
+    ['#BCE3BE', '#d9e0da'],
   ];
 
   const defaultPieData = areas.map((area, i) => ({
@@ -49,7 +50,10 @@ const Pie = ({ areas, animate }) => {
 
       return datum;
     }));
-    setTitle(props[index].title);
+    setTitle({
+      title: props[index].title,
+      color: colors[index][0]
+    });
   };
 
   const onMouseOut = () => {
@@ -70,8 +74,8 @@ const Pie = ({ areas, animate }) => {
         />
       </PieWrapper>
       {title !== null &&
-        <Title>
-          {title}
+        <Title color={title.color}>
+          {title.title}
         </Title>
       }
     </PieWithTitleWrapper>
