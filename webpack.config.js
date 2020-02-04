@@ -1,5 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackRootPlugin = require('html-webpack-root-plugin');
+const { BaseHrefWebpackPlugin } = require('base-href-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -7,6 +10,15 @@ module.exports = {
     path: path.join(__dirname, '/public'),
     filename: 'index_bundle.js',
   },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'Caribou',
+      favicon: './src/assets/images/favicon.ico',
+    }),
+    new BaseHrefWebpackPlugin({ baseHref: '/' }),
+    new HtmlWebpackRootPlugin(),
+  ],
   module: {
     rules: [
       {
