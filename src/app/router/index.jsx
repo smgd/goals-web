@@ -5,11 +5,11 @@ import {
 import history from './history';
 import Login from '../components/authentication/login/Login';
 import Register from '../components/authentication/register/Register';
-import Dashboard from '../components/dashboard/Dashboard';
+import Dashboard from '../components/core/Dashboard';
 import AuthPage from '../components/authentication/AuthPage';
 import { LoginContext } from '../components/authentication/LoginContext';
 import { Loader } from '../components/common/Common.styles';
-import AreasContainer from "../components/dashboard/Areas/Areas.container";
+import AreasContainer from "../components/core/Areas/Areas.container";
 import Page404 from "../components/Page404";
 
 
