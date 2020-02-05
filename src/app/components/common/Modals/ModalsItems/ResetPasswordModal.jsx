@@ -8,7 +8,7 @@ const ResetPasswordModal = ({ setModal }) => {
   return (
     <>
       <Input
-        styles="light"
+        theme="light"
         type="text"
         placeholder="Reset Email"
         value={resetEmail}

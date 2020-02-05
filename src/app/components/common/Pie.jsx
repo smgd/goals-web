@@ -26,6 +26,8 @@ const Pie = ({ areas, animate }) => {
     ['#0CBCF2', '#bbe1ed'],
     ['#F2930C', '#efd5b1'],
     ['#93e884', '#d1efcb'],
+    ['#ef8d7a', '#f4dad4'],
+    ['#b57fe8', '#d9cce5'],
   ];
 
   const defaultPieData = areas.map((area, i) => ({

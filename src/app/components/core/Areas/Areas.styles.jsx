@@ -8,11 +8,13 @@ const AreasWrapper = styled('div')`
     'title title title button'
     'areas areas areas areas';
   grid-template-columns: 15% 35% 35% 15%;
+  grid-template-rows: max-content;
   grid-gap: 0;
 `;
 
 const AreaTitle = styled(Title)`
   grid-area: title;
+  padding-bottom: 25px;
 `;
 
 const Button = styled('div')`
@@ -23,6 +25,7 @@ const Button = styled('div')`
 
 const Areas = styled('div')`
   grid-area: areas;
+  align-items: flex-start;
 `;
 
 AreasWrapper.Title = AreaTitle;
@@ -30,3 +33,8 @@ AreasWrapper.Button = Button;
 AreasWrapper.Areas = Areas;
 
 export default AreasWrapper;
+
+export const AreaInputs = styled('div')`
+  display: flex;
+  flex-direction: column;
+`;

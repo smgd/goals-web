@@ -13,13 +13,14 @@ export const fetchAndSetAreas = (setter) => {
     .catch(e => console.log(e));
 };
 
-export const createArea = (name, description, icon, isFavourite) =>
-  api(`areas/create`)
+export const createArea = (name, description, icon, isFavourite, weight) =>
+  api(`areas`)
     .post({
       name: name,
       description: description,
       icon: icon,
       is_favourite: isFavourite,
+      weight: weight,
     })
     .then(resp => resp.data);
 

@@ -11,6 +11,7 @@ import { LoginContext } from '../components/authentication/LoginContext';
 import { Loader } from '../components/common/Common.styles';
 import AreasContainer from "../components/core/Areas/Areas.container";
 import Page404 from "../components/Page404";
+import AreaComponent from "../components/core/Areas/Area.component";
 
 
 const PrivateRoute = ({ user, component: Component, ...rest }) => {
@@ -41,7 +42,13 @@ const AuthRouter = () => {
             user={user}
           />
           <PrivateRoute
+            path="/areas/create"
+            component={AreaComponent}
+            user={user}
+          />
+          <PrivateRoute
             path="/areas"
+            exact
             component={AreasContainer}
             user={user}
           />

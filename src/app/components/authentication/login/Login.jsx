@@ -35,14 +35,14 @@ const Login = () => {
       {modal || null}
       <WhiteCard>
         <Input
-          styles="light"
+          theme="light"
           type="text"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         <Input
-          styles="light"
+          theme="light"
           type="password"
           placeholder="Password"
           value={password}

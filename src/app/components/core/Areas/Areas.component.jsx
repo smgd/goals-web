@@ -3,7 +3,9 @@ import { AreasContext, AreasProvider } from './Areas.context';
 import AreasWrapper from "./Areas.styles";
 import Button from "../../common/Buttons/Button";
 import Pie from "../../common/Pie";
-import {Loader} from "../../common/Common.styles";
+import { Loader } from "../../common/Common.styles";
+import history from "../../../router/history";
+
 
 const AreasComponent = () => {
   const { areas, setAreas } = useContext(AreasContext);
@@ -15,7 +17,7 @@ const AreasComponent = () => {
         <Button
           title="Add new"
           type="light"
-          onClick={() => {}}
+          onClick={() => history.push('/areas/create')}
         />
       </AreasWrapper.Button>
       <AreasWrapper.Areas>
