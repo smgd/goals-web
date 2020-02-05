@@ -15,7 +15,7 @@ const AreasComponent = () => {
       <AreasWrapper.Title>Your Areas</AreasWrapper.Title>
       <AreasWrapper.Button>
         <Button
-          title="Add new"
+          title="Create Area"
           type="light"
           onClick={() => history.push('/areas/create')}
         />
