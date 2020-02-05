@@ -16,6 +16,8 @@ export const Container = styled('div')`
   display: flex;
   justify-content: center;
   overflow: auto;
+  padding: 25px;
+  box-sizing: border-box;
 `;
 
 export const WhiteCard = styled('div')`
@@ -69,4 +71,11 @@ export const ValidationError = styled('div')`
   color: red;
   font-size: 12px;
   margin-bottom: 15px;
+`;
+
+export const Title = styled('div')`
+  font-family: Open Sans, sans-serif;
+  font-size: 24px;
+  line-height: 25px;
+  text-transform: uppercase;
 `;

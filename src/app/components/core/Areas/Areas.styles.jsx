@@ -1,8 +1,8 @@
 import styled from 'styled-components';
+import { Title } from "../../common/Common.styles";
 
 const AreasWrapper = styled('div')`
   width: 100%;
-  padding: 25px;
   display: grid;
   grid-template-areas:
     'title title title button'
@@ -11,12 +11,8 @@ const AreasWrapper = styled('div')`
   grid-gap: 0;
 `;
 
-const Title = styled('div')`
+const AreaTitle = styled(Title)`
   grid-area: title;
-  font-family: Open Sans, sans-serif;
-  font-size: 24px;
-  line-height: 25px;
-  text-transform: uppercase;
 `;
 
 const Button = styled('div')`
@@ -29,7 +25,7 @@ const Areas = styled('div')`
   grid-area: areas;
 `;
 
-AreasWrapper.Title = Title;
+AreasWrapper.Title = AreaTitle;
 AreasWrapper.Button = Button;
 AreasWrapper.Areas = Areas;
 
