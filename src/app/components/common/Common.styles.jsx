@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Button from "./Buttons/Button";
 
 export const Row = styled('div')`
   display: flex;
@@ -76,4 +77,12 @@ export const Title = styled('div')`
   font-size: 24px;
   line-height: 25px;
   text-transform: uppercase;
+`;
+
+export const LeftButton = styled(Button)`
+  margin-right: 10px;
+`;
+
+export const RightButton = styled(Button)`
+  margin-left: 10px;
 `;

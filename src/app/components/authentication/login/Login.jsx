@@ -1,8 +1,7 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
-import { CenterBlockWrapper, Row, Link, ValidationError } from '../../common/Common.styles';
+import { CenterBlockWrapper, Row, Link, ValidationError, LeftButton, RightButton } from '../../common/Common.styles';
 import { LoginContext } from '../LoginContext';
-import Button from '../../common/Buttons/Button';
 import Input from '../../common/Inputs/Input';
 import history from '../../../router/history';
 import Fonts from '../../common/Fonts.styles';
@@ -54,12 +53,7 @@ const Login = () => {
           </ValidationError>
         }
         <Row>
-          <Button
-            title="Cancel"
-            type="dark"
-            onClick={() => history.push('/')}
-          />
-          <Button
+          <LeftButton
             title="Sign in"
             type="light"
             onClick={() => {
@@ -78,14 +72,20 @@ const Login = () => {
                 })
             }}
           />
+          <RightButton
+            title="Cancel"
+            type="dark"
+            onClick={() => history.push('/')}
+          />
+
         </Row>
-        <Paragraph>
-          Forgot password?
-          {' '}
-          <Link onClick={() => setModal(Modals.ResetPasswordModal)}>
-            Reset via email
-          </Link>
-        </Paragraph>
+        {/*<Paragraph>*/}
+        {/*  Forgot password?*/}
+        {/*  {' '}*/}
+        {/*  <Link onClick={() => setModal(Modals.ResetPasswordModal)}>*/}
+        {/*    Reset via email*/}
+        {/*  </Link>*/}
+        {/*</Paragraph>*/}
       </CenterBlockWrapper>
     </React.Fragment>
   );

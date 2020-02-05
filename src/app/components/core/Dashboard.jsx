@@ -2,8 +2,7 @@ import React, { useContext } from 'react';
 import { clearAuthToken } from '../../api/api';
 import history from '../../router/history';
 import { LoginContext } from '../authentication/LoginContext';
-import { CenterBlockWrapper } from '../common/Common.styles';
-import Button from '../common/Buttons/Button';
+import { CenterBlockWrapper, LeftButton, RightButton, Row } from '../common/Common.styles';
 
 const Dashboard = () => {
   const { user, setUser } = useContext(LoginContext);
@@ -17,25 +16,27 @@ const Dashboard = () => {
           <br />
           Your email: {user.email}
         </p>
-        <Button
-          title="Open Your Areas"
-          type="light"
-          onClick={() => {
-            history.push('/areas');
-          }}
-        />
-        <Button
-          title="Log Out"
-          type="dark"
-          onClick={() => {
-            clearAuthToken();
-            setUser(() => ({
-              username: null,
-              isFetched: true,
-            }));
-            history.push('/');
-          }}
-        />
+        <Row>
+          <LeftButton
+            title="Open Your Areas"
+            type="light"
+            onClick={() => {
+              history.push('/areas');
+            }}
+          />
+          <RightButton
+            title="Log Out"
+            type="dark"
+            onClick={() => {
+              clearAuthToken();
+              setUser(() => ({
+                username: null,
+                isFetched: true,
+              }));
+              history.push('/');
+            }}
+          />
+        </Row>
       </CenterBlockWrapper>
     </React.Fragment>
   );

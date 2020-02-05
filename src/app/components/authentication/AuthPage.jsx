@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { CenterBlockWrapper, Container, Row } from '../common/Common.styles';
 import Fonts from '../common/Fonts.styles';
-import Button from '../common/Buttons/Button';
+import { LeftButton, RightButton } from '../common/Common.styles';
 import history from '../../router/history';
 import { LoginContext } from "./LoginContext";
 import logo from '../../../assets/images/caribou.png';
@@ -38,12 +38,12 @@ const AuthPage = () => {
         <Header>Caribou</Header>
         <Paragraph>Please authorize to continue</Paragraph>
         <Row>
-          <Button
+          <LeftButton
             title="Sign in"
             type="light"
             onClick={() => history.push('/login')}
           />
-          <Button
+          <RightButton
             title="Sign up"
             type="dark"
             onClick={() => history.push('/register')}

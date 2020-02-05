@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { CenterBlockWrapper, Row, ValidationError } from '../../common/Common.styles';
-import Button from '../../common/Buttons/Button';
+import { CenterBlockWrapper, LeftButton, RightButton, Row, ValidationError } from '../../common/Common.styles';
 import Input from '../../common/Inputs/Input';
 import history from '../../../router/history';
 import { fetchAndSetUser, registerUser } from "../api";
@@ -87,15 +86,15 @@ const Register = () => {
         </ValidationError>
       }
       <Row>
-        <Button
-          title="Cancel"
-          type="dark"
-          onClick={() => history.push('/')}
-        />
-        <Button
+        <LeftButton
           title="Sign up"
           type="light"
           onClick={register}
+        />
+        <RightButton
+          title="Cancel"
+          type="dark"
+          onClick={() => history.push('/')}
         />
       </Row>
     </CenterBlockWrapper>
