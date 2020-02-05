@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { WhiteCard, Row, ValidationError } from '../../common/Common.styles';
+import { CenterBlockWrapper, Row, ValidationError } from '../../common/Common.styles';
 import Button from '../../common/Buttons/Button';
 import Input from '../../common/Inputs/Input';
 import history from '../../../router/history';
@@ -44,7 +44,7 @@ const Register = () => {
   };
 
   return (
-    <WhiteCard>
+    <CenterBlockWrapper>
       <Input
         type="email"
         placeholder="Email"
@@ -98,7 +98,7 @@ const Register = () => {
           onClick={register}
         />
       </Row>
-    </WhiteCard>
+    </CenterBlockWrapper>
   );
 };
 

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { WhiteCard, Container, Row } from '../common/Common.styles';
+import { CenterBlockWrapper, Container, Row } from '../common/Common.styles';
 import Fonts from '../common/Fonts.styles';
 import Button from '../common/Buttons/Button';
 import history from '../../router/history';
@@ -31,7 +31,7 @@ const AuthPage = () => {
 
   return (
     <Container>
-      <WhiteCard>
+      <CenterBlockWrapper>
         <Logo
           src={logo}
         />
@@ -49,7 +49,7 @@ const AuthPage = () => {
             onClick={() => history.push('/register')}
           />
         </Row>
-      </WhiteCard>
+      </CenterBlockWrapper>
     </Container>
   );
 };

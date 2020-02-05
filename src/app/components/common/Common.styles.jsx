@@ -20,15 +20,13 @@ export const Container = styled('div')`
   box-sizing: border-box;
 `;
 
-export const WhiteCard = styled('div')`
+export const CenterBlockWrapper = styled('div')`
   width: 360px;
   padding: 40px;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fff;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 `;
 
 export const ModalCard = styled('div')`

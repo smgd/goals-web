@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
-import { WhiteCard, Row, Link, ValidationError } from '../../common/Common.styles';
+import { CenterBlockWrapper, Row, Link, ValidationError } from '../../common/Common.styles';
 import { LoginContext } from '../LoginContext';
 import Button from '../../common/Buttons/Button';
 import Input from '../../common/Inputs/Input';
@@ -33,7 +33,7 @@ const Login = () => {
   return (
     <React.Fragment>
       {modal || null}
-      <WhiteCard>
+      <CenterBlockWrapper>
         <Input
           theme="light"
           type="text"
@@ -86,7 +86,7 @@ const Login = () => {
             Reset via email
           </Link>
         </Paragraph>
-      </WhiteCard>
+      </CenterBlockWrapper>
     </React.Fragment>
   );
 };

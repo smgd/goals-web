@@ -2,14 +2,14 @@ import React, { useContext } from 'react';
 import { clearAuthToken } from '../../api/api';
 import history from '../../router/history';
 import { LoginContext } from '../authentication/LoginContext';
-import { WhiteCard } from '../common/Common.styles';
+import { CenterBlockWrapper } from '../common/Common.styles';
 import Button from '../common/Buttons/Button';
 
 const Dashboard = () => {
   const { user, setUser } = useContext(LoginContext);
   return (
     <React.Fragment>
-      <WhiteCard>
+      <CenterBlockWrapper>
         <h2>Hi, {user.username}!</h2>
         <p>
           Your name: {user.firstName} {user.lastName}
@@ -36,7 +36,7 @@ const Dashboard = () => {
             history.push('/');
           }}
         />
-      </WhiteCard>
+      </CenterBlockWrapper>
     </React.Fragment>
   );
 };
