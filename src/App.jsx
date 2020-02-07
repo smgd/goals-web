@@ -5,13 +5,15 @@ import { ModalProvider } from './app/components/common/Modals/ModalContext';
 import { Container } from "./app/components/common/Common.styles";
 
 const App = () => (
-  <LoginProvider>
-    <ModalProvider>
-      <Container>
-        <AuthRouter />
-      </Container>
-    </ModalProvider>
-  </LoginProvider>
+  <LocalizationProvider>
+    <LoginProvider>
+      <ModalProvider>
+        <Container>
+          <AuthRouter />
+        </Container>
+      </ModalProvider>
+    </LoginProvider>
+  </LocalizationProvider>
 );
 
 export default App;

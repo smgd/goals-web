@@ -1,0 +1,16 @@
+{
+  "AuthPage.title": "Caribou",
+  "AuthPage.description": "Please authorize to continue",
+  "AuthPage.signIn": "Sign In",
+  "AuthPage.signUp": "Sign Up",
+
+  "Login.username": "Username",
+  "Login.password": "Password",
+  "Login.signIn": "Sign in",
+  "Login.cancel": "Cancel",
+  "Login.error": "Incorrect username or password",
+
+
+  "ResetPasswordModal.resetEmail": "Reset Email",
+  "ResetPasswordModal.send": "Send"
+}
