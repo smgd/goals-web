@@ -5,20 +5,25 @@ import Button from "../../common/Buttons/Button";
 import Pie from "../../common/Pie";
 import { Loader } from "../../common/Common.styles";
 import history from "../../../router/history";
+import { FormattedMessage } from 'react-intl';
 
 
 const AreasComponent = () => {
   const { areas, setAreas } = useContext(AreasContext);
 
-  return (!areas ? <Loader/> :
+  if (!areas) return <Loader/>
+
+  return (
     <AreasWrapper>
-      <AreasWrapper.Title>Your Areas</AreasWrapper.Title>
+      <AreasWrapper.Title>
+        <FormattedMessage id="AreasComponent.title" />
+      </AreasWrapper.Title>
       <AreasWrapper.Button>
         <Button
-          title="Create Area"
-          type="light"
           onClick={() => history.push('/areas/create')}
-        />
+        >
+          <FormattedMessage id="AreasComponent.btn.create" />
+        </Button>
       </AreasWrapper.Button>
       <AreasWrapper.Areas>
         <Pie

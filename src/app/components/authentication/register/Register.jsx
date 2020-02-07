@@ -5,8 +5,10 @@ import history from '../../../router/history';
 import { fetchAndSetUser, registerUser } from "../api";
 import { setAuthToken } from "../../../api/api";
 import { LoginContext } from "../LoginContext";
+import { ButtonTheme } from '../../../model/Themes';
+import { FormattedMessage, injectIntl } from 'react-intl';
 
-const Register = () => {
+const Register = ({ intl }) => {
   const { user, setUser } = useContext(LoginContext);
   const [username, setUsername] = useState(null);
   const [firstName, setFirstName] = useState(null);
@@ -14,24 +16,24 @@ const Register = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [passwordAgain, setPasswordAgain] = useState(null);
-  const [validationErrorText, setValidationErrorText] = useState(null);
+  const [validationErrorTextId, setValidationErrorTextId] = useState(null);
 
   if (user.username) {
     history.push('/dashboard');
   }
 
-  const register = () => {
+  const onRegisterButtonClick = () => {
     if (!firstName || !lastName || !email || !username) {
-      setValidationErrorText('Fill all required fields please!');
+      setValidationErrorTextId('Register.error.allRequired');
       return;
     }
 
     if (password !== passwordAgain) {
-      setValidationErrorText('Passwords should match!!');
+      setValidationErrorTextId('Register.error.passwordsNotMatch');
       return;
     }
 
-    setValidationErrorText(null);
+    setValidationErrorTextId(null);
     registerUser(username, password, email, firstName, lastName)
       .then((data) => {
         const { token } = data;
@@ -46,59 +48,64 @@ const Register = () => {
     <CenterBlockWrapper>
       <Input
         type="email"
-        placeholder="Email"
+        placeholder={intl.formatMessage({ id: 'Register.field.email' })}
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
       <Input
         type="text"
-        placeholder="Username"
+        placeholder={intl.formatMessage({ id: 'Register.field.username' })}
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
       <Input
         type="text"
-        placeholder="First Name"
+        placeholder={intl.formatMessage({ id: 'Register.field.firstName' })}
         value={firstName}
         onChange={(e) => setFirstName(e.target.value)}
       />
       <Input
         type="text"
-        placeholder="Last Name"
+        placeholder={intl.formatMessage({ id: 'Register.field.lastName' })}
         value={lastName}
         onChange={(e) => setLastName(e.target.value)}
       />
       <Input
         type="password"
-        placeholder="Password"
+        placeholder={intl.formatMessage({ id: 'Register.field.password' })}
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
       <Input
         type="password"
-        placeholder="Confirm Password"
+        placeholder={intl.formatMessage({ id: 'Register.field.passwordConfirmation' })}
         value={passwordAgain}
         onChange={(e) => setPasswordAgain(e.target.value)}
       />
-      {validationErrorText &&
+      {validationErrorTextId &&
         <ValidationError>
-          {validationErrorText}
+          <FormattedMessage id={validationErrorTextId} />
         </ValidationError>
       }
       <Row>
         <LeftButton
           title="Sign up"
-          type="light"
-          onClick={register}
-        />
+          onClick={onRegisterButtonClick}
+        >
+          <FormattedMessage id="Register.btn.signUp" />
+        </LeftButton>
         <RightButton
           title="Cancel"
-          type="dark"
+          theme={ButtonTheme.DARK}
           onClick={() => history.push('/')}
-        />
+        >
+          <FormattedMessage id="Register.btn.cancel" />
+        </RightButton>
       </Row>
     </CenterBlockWrapper>
   );
 };
 
-export default Register;
+const RegisterWithIntl = injectIntl(Register)
+
+export default RegisterWithIntl;

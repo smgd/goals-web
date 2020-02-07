@@ -20,7 +20,7 @@ const Login = ({ intl }) => {
 
   const [username, setUsername] = useState(user.username);
   const [password, setPassword] = useState(user.password);
-  const [validationErrorText, setValidationErrorText] = useState(null);
+  const [validationErrorTextId, setValidationErrorTextId] = useState(null);
 
   return (
     <React.Fragment>
@@ -40,9 +40,9 @@ const Login = ({ intl }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        {validationErrorText &&
+        {validationErrorTextId &&
           <ValidationError>
-            {validationErrorText}
+            <FormattedMessage id={validationErrorTextId} />
           </ValidationError>
         }
         <Row>
@@ -50,7 +50,7 @@ const Login = ({ intl }) => {
             onClick={() => {
               loginUser(username, password)
                 .then((data) => {
-                  setValidationErrorText(null);
+                  setValidationErrorTextId(null);
                   const { token } = data;
                   setAuthToken(token);
                   fetchAndSetUser(setUser);
@@ -59,7 +59,7 @@ const Login = ({ intl }) => {
                 })
                 .catch(() => {
                   clearAuthToken();//WTF?
-                  setValidationErrorText(intl.formatMessage({ id: 'Login.error' }))
+                  setValidationErrorTextId('Login.error')
                 })
             }}
           >

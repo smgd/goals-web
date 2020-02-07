@@ -49,7 +49,7 @@ const AuthPage = () => {
             <FormattedMessage id="AuthPage.signIn" />
           </LeftButton>
           <RightButton
-            type={ButtonTheme.DARK}
+            theme={ButtonTheme.DARK}
             onClick={() => history.push('/register')}
           >
             <FormattedMessage id="AuthPage.signUp" />

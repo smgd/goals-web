@@ -4,6 +4,7 @@ import AreasWrapper, { AreaInputs } from "./Areas.styles";
 import Button from "../../common/Buttons/Button";
 import Input from "../../common/Inputs/Input";
 import { createArea } from "./api";
+import { FormattedMessage } from 'react-intl';
 
 const AreaComponent = () => {
   const [ name, setName ] = useState(null);
@@ -26,35 +27,37 @@ const AreaComponent = () => {
 
   return (
       <AreasWrapper>
-        <AreasWrapper.Title>Create New Area</AreasWrapper.Title>
+        <AreasWrapper.Title>
+          <FormattedMessage id="AreaComponent.title" />
+        </AreasWrapper.Title>
         <AreasWrapper.Areas>
           <AreaInputs>
             <Input
               type="text"
               theme='lightWithBorder'
-              placeholder="Name"
+              placeholder={intl.formatMessage({ id: 'AreaComponent.field.name' })}
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
             <Input
               type="text"
               theme='lightWithBorder'
-              placeholder="Description"
+              placeholder={intl.formatMessage({ id: 'AreaComponent.field.description' })}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
             <Input
               type="text"
               theme='lightWithBorder'
-              placeholder="Weight"
+              placeholder={intl.formatMessage({ id: 'AreaComponent.field.weight' })}
               value={weight}
               onChange={(e) => onWeightUpdate(e.target.value)}
             />
             <Button
-              title="Create"
-              type="light"
               onClick={onCreate}
-            />
+            >
+              <FormattedMessage id="AreaComponent.btn.create" />
+            </Button>
           </AreaInputs>
         </AreasWrapper.Areas>
       </AreasWrapper>
