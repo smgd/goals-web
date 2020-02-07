@@ -6,6 +6,7 @@ import { LeftButton, RightButton } from '../common/Common.styles';
 import history from '../../router/history';
 import { LoginContext } from "./LoginContext";
 import logo from '../../../assets/images/caribou.png';
+import { ButtonTheme } from '../../model/Themes';
 
 const Header = styled(Fonts.H1)`
   margin-bottom: 10px;
@@ -35,19 +36,24 @@ const AuthPage = () => {
         <Logo
           src={logo}
         />
-        <Header>Caribou</Header>
-        <Paragraph>Please authorize to continue</Paragraph>
+        <Header>
+          <FormattedMessage id="AuthPage.title" />
+        </Header>
+        <Paragraph>
+          <FormattedMessage id="AuthPage.description" />
+        </Paragraph>
         <Row>
           <LeftButton
-            title="Sign in"
-            type="light"
             onClick={() => history.push('/login')}
-          />
+          >
+            <FormattedMessage id="AuthPage.signIn" />
+          </LeftButton>
           <RightButton
-            title="Sign up"
-            type="dark"
+            type={ButtonTheme.DARK}
             onClick={() => history.push('/register')}
-          />
+          >
+            <FormattedMessage id="AuthPage.signUp" />
+          </RightButton>
         </Row>
       </CenterBlockWrapper>
     </Container>
