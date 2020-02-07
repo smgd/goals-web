@@ -7,6 +7,7 @@ import history from '../../router/history';
 import { LoginContext } from "./LoginContext";
 import logo from '../../../assets/images/caribou.png';
 import { ButtonTheme } from '../../model/Themes';
+import { FormattedMessage } from 'react-intl';
 
 const Header = styled(Fonts.H1)`
   margin-bottom: 10px;

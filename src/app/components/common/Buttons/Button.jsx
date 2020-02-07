@@ -15,9 +15,9 @@ const componentTheme = {
   },
 };
 
-const Button = ({ theme, childen, ...etc }) => (
+const Button = ({ theme, children, ...etc }) => (
   <ButtonWrapper theme={componentTheme[theme]} {...etc}>
-    <ButtonWrapper.Title>{childen}</ButtonWrapper.Title>
+    <ButtonWrapper.Title>{children}</ButtonWrapper.Title>
   </ButtonWrapper>
 );
 

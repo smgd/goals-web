@@ -79,4 +79,4 @@ const Login = ({ intl }) => {
 
 const LoginWithIntl = injectIntl(Login)
 
-export default Login;
+export default LoginWithIntl;
