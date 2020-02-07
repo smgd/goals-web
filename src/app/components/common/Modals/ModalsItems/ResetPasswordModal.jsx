@@ -1,29 +1,32 @@
 import React, { useState } from 'react';
 import Input from '../../Inputs/Input';
 import Button from '../../Buttons/Button';
+import { ButtonTheme } from '../../../../model/Themes';
+import { injectIntl, FormattedMessage } from 'react-intl';
 
-const ResetPasswordModal = ({ setModal }) => {
+const ResetPasswordModal = ({ intl, setModal }) => {
   const [resetEmail, setResetEmail] = useState(null);
 
   return (
     <>
       <Input
-        theme="light"
-        type="text"
-        placeholder="Reset Email"
+        placeholder={intl.formatMessage({ id: 'ResetPasswordModal.resetEmail' })}
         value={resetEmail}
         onChange={(e) => setResetEmail(e.target.value)}
       />
       <Button
-        title="Send"
-        type="dark"
+        theme={ButtonTheme.DARK}
         onClick={() => {
           // send email function
           setModal(null);
         }}
-      />
+      >
+        <FormattedMessage id="ResetPasswordModal.send" />
+      </Button>
     </>
   );
 };
 
-export default ResetPasswordModal;
+const ResetPasswordModalWithIntl = injectIntl(ResetPasswordModal)
+
+export default ResetPasswordModalWithIntl;

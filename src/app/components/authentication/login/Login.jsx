@@ -1,25 +1,18 @@
 import React, { useContext, useState } from 'react';
-import styled from 'styled-components';
-import { CenterBlockWrapper, Row, Link, ValidationError, LeftButton, RightButton } from '../../common/Common.styles';
+import { CenterBlockWrapper, Row, ValidationError, LeftButton, RightButton } from '../../common/Common.styles';
 import { LoginContext } from '../LoginContext';
 import Input from '../../common/Inputs/Input';
 import history from '../../../router/history';
-import Fonts from '../../common/Fonts.styles';
 import { ModalContext } from '../../common/Modals/ModalContext';
 import { fetchAndSetUser, loginUser } from '../api';
 import { clearAuthToken, setAuthToken } from "../../../api/api";
+import { injectIntl, FormattedMessage } from 'react-intl';
+import { ButtonTheme } from '../../../model/Themes';
 
-
-const Paragraph = styled(Fonts.Paragraph)`
-  margin-top: 20px;
-  align-self: flex-end;
-  padding-right: 20px;
-`;
-
-const Login = () => {
+const Login = ({ intl }) => {
   const { user, setUser } = useContext(LoginContext);
 
-  if (user.username) {
+  if (user.username) {//TODO: make hoc this case
     history.push('/dashboard');
   }
 
@@ -27,7 +20,7 @@ const Login = () => {
 
   const [username, setUsername] = useState(user.username);
   const [password, setPassword] = useState(user.password);
-  const [validationErrorText, setValidationErrorText] = useState(null);
+  const [validationErrorTextId, setValidationErrorTextId] = useState(null);
 
   return (
     <React.Fragment>
@@ -36,30 +29,28 @@ const Login = () => {
         <Input
           theme="light"
           type="text"
-          placeholder="Username"
+          placeholder={intl.formatMessage({ id: 'Login.username' })}
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         <Input
           theme="light"
           type="password"
-          placeholder="Password"
+          placeholder={intl.formatMessage({ id: 'Login.password' })}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        {validationErrorText &&
+        {validationErrorTextId &&
           <ValidationError>
-            {validationErrorText}
+            <FormattedMessage id={validationErrorTextId} />
           </ValidationError>
         }
         <Row>
           <LeftButton
-            title="Sign in"
-            type="light"
             onClick={() => {
               loginUser(username, password)
                 .then((data) => {
-                  setValidationErrorText(null);
+                  setValidationErrorTextId(null);
                   const { token } = data;
                   setAuthToken(token);
                   fetchAndSetUser(setUser);
@@ -67,28 +58,25 @@ const Login = () => {
                   history.push('/dashboard');
                 })
                 .catch(() => {
-                  clearAuthToken();
-                  setValidationErrorText('Incorrect username or password')
+                  clearAuthToken();//WTF?
+                  setValidationErrorTextId('Login.error')
                 })
             }}
-          />
+          >
+            <FormattedMessage id="Login.signIn" />
+          </LeftButton>
           <RightButton
-            title="Cancel"
-            type="dark"
+            theme={ButtonTheme.DARK}
             onClick={() => history.push('/')}
-          />
-
+          >
+            <FormattedMessage id="Login.cancel" />
+          </RightButton>
         </Row>
-        {/*<Paragraph>*/}
-        {/*  Forgot password?*/}
-        {/*  {' '}*/}
-        {/*  <Link onClick={() => setModal(Modals.ResetPasswordModal)}>*/}
-        {/*    Reset via email*/}
-        {/*  </Link>*/}
-        {/*</Paragraph>*/}
       </CenterBlockWrapper>
     </React.Fragment>
   );
 };
 
-export default Login;
+const LoginWithIntl = injectIntl(Login)
+
+export default LoginWithIntl;

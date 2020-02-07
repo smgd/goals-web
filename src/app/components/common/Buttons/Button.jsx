@@ -1,31 +1,28 @@
 import React from 'react';
 import ButtonWrapper from './Button.styles';
+import { ButtonTheme } from '../../../model/Themes';
 
-const Button = ({ title, type, onClick }) => {
-  const theme = {
-    light: {
-      font: '#FFFFFF',
-      border: 'none',
-      background: 'linear-gradient(119.36deg, #FEBD81 0%, rgba(255, 255, 255, 0) 100%), #FF9091',
-    },
-    dark: {
-      font: '#FEBD81',
-      border: '1px solid #FEBD81',
-      background: '#FFFFFF',
-    },
-  };
-
-  return (
-    <ButtonWrapper onClick={onClick} theme={theme[type]}>
-      <ButtonWrapper.Title>{title}</ButtonWrapper.Title>
-    </ButtonWrapper>
-  );
+const componentTheme = {
+  [ButtonTheme.LIGHT]: {
+    font: '#FFFFFF',
+    border: 'none',
+    background: 'linear-gradient(119.36deg, #FEBD81 0%, rgba(255, 255, 255, 0) 100%), #FF9091',
+  },
+  [ButtonTheme.DARK]: {
+    font: '#FEBD81',
+    border: '1px solid #FEBD81',
+    background: '#FFFFFF',
+  },
 };
 
+const Button = ({ theme, children, ...etc }) => (
+  <ButtonWrapper theme={componentTheme[theme]} {...etc}>
+    <ButtonWrapper.Title>{children}</ButtonWrapper.Title>
+  </ButtonWrapper>
+);
+
 Button.defaultProps = {
-  title: '',
-  type: 'light',
-  onClick: () => {},
+  theme: ButtonTheme.LIGHT,
 };
 
 export default Button;

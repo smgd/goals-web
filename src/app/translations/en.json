@@ -1,0 +1,44 @@
+{
+  "AuthPage.title": "Caribou",
+  "AuthPage.description": "Please authorize to continue",
+  "AuthPage.signIn": "Sign In",
+  "AuthPage.signUp": "Sign Up",
+
+  "Login.username": "Username",
+  "Login.password": "Password",
+  "Login.signIn": "Sign in",
+  "Login.cancel": "Cancel",
+  "Login.error": "Incorrect username or password",
+
+  "Register.error.allRequired": "Fill all required fields please!",
+  "Register.error.passwordsNotMatch": "Passwords should match!!",
+  "Register.field.email": "Email",
+  "Register.field.username": "Username",
+  "Register.field.firstName": "First Name",
+  "Register.field.lastName": "Last Name",
+  "Register.field.password": "Password",
+  "Register.field.passwordConfirmation": "Confirm Password",
+  "Register.btn.signUp": "Sign up",
+  "Register.btn.cancel": "Cancel",
+
+  "AreaComponent.title": "Create New Area",
+  "AreaComponent.field.name": "Name",
+  "AreaComponent.field.description": "Description",
+  "AreaComponent.field.weight": "Weight",
+  "AreaComponent.btn.create": "Create",
+
+  "AreasComponent.title": "Your Areas",
+  "AreasComponent.btn.create": "Create Area",
+
+  "Dashboard.greeting.title": "Hi, {username}!",
+  "Dashboard.userInfo": "Your name: {firstName} {lastName}<br /><br />Your email: {email}",
+  "Dashboard.btn.openAreas": "Open Your Areas",
+  "Dashboard.btn.logOut": "Log Out",
+
+  "Page404.title": "FUCK!!",
+  "Page404.subTitle": "page not found",
+  "Page404.description": "the page you requested does not exist",
+
+  "ResetPasswordModal.resetEmail": "Reset Email",
+  "ResetPasswordModal.send": "Send"
+}
