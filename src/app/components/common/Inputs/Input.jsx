@@ -1,7 +1,9 @@
-import React from 'react';
-import InputWrapper from './Input.styles';
+import React from 'react'
+import InputWrapper from './Input.styles'
 
-const Input = ({ placeholder, type, theme, value, onChange, extraStyle }) => {
+const Input = ({
+  placeholder, type, theme, value, onChange, extraStyle,
+}) => {
   const themes = {
     light: {
       border: '#F3F3F3',
@@ -11,7 +13,7 @@ const Input = ({ placeholder, type, theme, value, onChange, extraStyle }) => {
       border: '#FEBD81',
       background: '#F3F3F3',
     },
-  };
+  }
 
   return (
     <InputWrapper
@@ -22,8 +24,8 @@ const Input = ({ placeholder, type, theme, value, onChange, extraStyle }) => {
       onChange={onChange}
       style={extraStyle}
     />
-  );
-};
+  )
+}
 
 Input.defaultProps = {
   placeholder: '',
@@ -32,6 +34,6 @@ Input.defaultProps = {
   value: null,
   onChange: () => {},
   style: {},
-};
+}
 
-export default Input;
+export default Input

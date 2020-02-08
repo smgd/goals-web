@@ -1,12 +1,12 @@
-import styled from 'styled-components';
-import Button from "./Buttons/Button";
+import styled from 'styled-components'
+import Button from './Buttons/Button'
 
 export const Row = styled('div')`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 320px;
-`;
+`
 
 export const Container = styled('div')`
   background: #E9EBED;
@@ -20,7 +20,7 @@ export const Container = styled('div')`
   overflow: auto;
   padding: 25px;
   box-sizing: border-box;
-`;
+`
 
 export const CenterBlockWrapper = styled('div')`
   width: 360px;
@@ -29,7 +29,7 @@ export const CenterBlockWrapper = styled('div')`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+`
 
 export const ModalCard = styled('div')`
   position: absolute;
@@ -44,12 +44,12 @@ export const ModalCard = styled('div')`
   align-items: center;
   background-color: #fff;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-`;
+`
 
 export const Link = styled('a')`
   color: darkblue;
   cursor: pointer;
-`;
+`
 
 export const Loader = styled('div')`
   border: 12px solid #f3f3f3;
@@ -65,25 +65,25 @@ export const Loader = styled('div')`
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   } 
-`;
+`
 
 export const ValidationError = styled('div')`
   color: red;
   font-size: 12px;
   margin-bottom: 15px;
-`;
+`
 
 export const Title = styled('div')`
   font-family: Open Sans, sans-serif;
   font-size: 24px;
   line-height: 25px;
   text-transform: uppercase;
-`;
+`
 
 export const LeftButton = styled(Button)`
   margin-right: 10px;
-`;
+`
 
 export const RightButton = styled(Button)`
   margin-left: 10px;
-`;
+`

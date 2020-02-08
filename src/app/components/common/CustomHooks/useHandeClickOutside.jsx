@@ -1,20 +1,20 @@
-import { useEffect } from 'react';
+import { useEffect } from 'react'
 
 const useHandleClickOutside = (refId, handler) => {
   useEffect(() => {
-    const ref = document.getElementById(refId);
+    const ref = document.getElementById(refId)
     const listener = (event) => {
       if (!ref || ref.contains(event.target)) {
-        return null;
+        return
       }
-      handler(event);
-    };
+      handler(event)
+    }
 
-    document.addEventListener('click', listener);
+    document.addEventListener('click', listener)
     return () => {
-      document.removeEventListener('click', listener);
-    };
-  }, [refId, handler]);
-};
+      document.removeEventListener('click', listener)
+    }
+  }, [refId, handler])
+}
 
-export default useHandleClickOutside;
+export default useHandleClickOutside

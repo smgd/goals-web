@@ -1,4 +1,4 @@
-import { api } from '../../api/api';
+import { api } from '../../api/api'
 
 
 export const fetchUser = () => api('whoami').get()
@@ -7,42 +7,44 @@ export const fetchUser = () => api('whoami').get()
     firstName: resp.data.first_name,
     lastName: resp.data.last_name,
     email: resp.data.email,
-  }));
+  }))
 
 export const fetchAndSetUser = (setter) => {
-  setter(prev => ({
+  setter((prev) => ({
     ...prev,
     isFetched: false,
-  }));
+  }))
   fetchUser()
-    .then(resp => {
-      const { username, firstName, lastName, email } = resp;
-      setter(prev => ({
+    .then((resp) => {
+      const {
+        username, firstName, lastName, email,
+      } = resp
+      setter((prev) => ({
         ...prev,
-        username: username,
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
+        username,
+        firstName,
+        lastName,
+        email,
         isFetched: true,
       }))
     })
-    .catch(() => setter(prev => ({
-        ...prev,
-        isFetched: true,
-      })))
-};
+    .catch(() => setter((prev) => ({
+      ...prev,
+      isFetched: true,
+    })))
+}
 
 export const loginUser = (username, password) => api('login').post({
-  username: username,
-  password: password,
+  username,
+  password,
 })
-  .then((resp) => resp.data);
+  .then((resp) => resp.data)
 
 export const registerUser = (username, password, email, firstName, lastName) => api('register').post({
-  username: username,
-  password: password,
-  email: email,
+  username,
+  password,
+  email,
   first_name: firstName,
   last_name: lastName,
 })
-  .then((resp) => resp.data);
+  .then((resp) => resp.data)

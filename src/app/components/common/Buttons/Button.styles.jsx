@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const ButtonWrapper = styled('button')`
   width: 150px;
@@ -15,14 +15,14 @@ const ButtonWrapper = styled('button')`
   &:hover {
     box-shadow: 0 14px 18px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   }
-`;
+`
 
 const Title = styled('div')`
   font-family: Open Sans, sans-serif;
   font-size: 18px;
   line-height: 25px;
-`;
+`
 
-ButtonWrapper.Title = Title;
+ButtonWrapper.Title = Title
 
-export default ButtonWrapper;
+export default ButtonWrapper

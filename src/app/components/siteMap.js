@@ -8,7 +8,7 @@ const siteMap = {
     dashboard: () => '/dashboard',
     areas: () => '/areas',
     createArea: () => '/areas/create',
-  }
+  },
 }
 
 export {

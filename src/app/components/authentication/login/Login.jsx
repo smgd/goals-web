@@ -1,30 +1,32 @@
-import React, { useContext, useState } from 'react';
-import { CenterBlockWrapper, Row, ValidationError, LeftButton, RightButton } from '../../common/Common.styles';
-import { LoginContext } from '../LoginContext';
-import Input from '../../common/Inputs/Input';
-import history from '../../../router/history';
-import { ModalContext } from '../../common/Modals/ModalContext';
-import { fetchAndSetUser, loginUser } from '../api';
-import { clearAuthToken, setAuthToken } from "../../../api/api";
-import { injectIntl, FormattedMessage } from 'react-intl';
-import { ButtonTheme } from '../../../model/Themes';
-import { siteMap } from '../../siteMap';
+import React, { useContext, useState } from 'react'
+import { injectIntl, FormattedMessage } from 'react-intl'
+import {
+  CenterBlockWrapper, Row, ValidationError, LeftButton, RightButton,
+} from '../../common/Common.styles'
+import { LoginContext } from '../LoginContext'
+import Input from '../../common/Inputs/Input'
+import history from '../../../router/history'
+import { ModalContext } from '../../common/Modals/ModalContext'
+import { fetchAndSetUser, loginUser } from '../api'
+import { clearAuthToken, setAuthToken } from '../../../api/api'
+import { ButtonTheme } from '../../../model/Themes'
+import { siteMap } from '../../siteMap'
 
 const Login = ({ intl }) => {
-  const { user, setUser } = useContext(LoginContext);
+  const { user, setUser } = useContext(LoginContext)
 
-  if (user.username) {//TODO: make hoc this case
-    history.push(siteMap.USER.dashboard());
+  if (user.username) { //TODO: make hoc this case
+    history.push(siteMap.USER.dashboard())
   }
 
-  const { modal, setModal, Modals } = useContext(ModalContext);
+  const { modal } = useContext(ModalContext)
 
-  const [username, setUsername] = useState(user.username);
-  const [password, setPassword] = useState(user.password);
-  const [validationErrorTextId, setValidationErrorTextId] = useState(null);
+  const [username, setUsername] = useState(user.username)
+  const [password, setPassword] = useState(user.password)
+  const [validationErrorTextId, setValidationErrorTextId] = useState(null)
 
   return (
-    <React.Fragment>
+    <>
       {modal || null}
       <CenterBlockWrapper>
         <Input
@@ -41,25 +43,26 @@ const Login = ({ intl }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        {validationErrorTextId &&
+        {validationErrorTextId
+          && (
           <ValidationError>
             <FormattedMessage id={validationErrorTextId} />
           </ValidationError>
-        }
+          )}
         <Row>
           <LeftButton
             onClick={() => {
               loginUser(username, password)
                 .then((data) => {
-                  setValidationErrorTextId(null);
-                  const { token } = data;
-                  setAuthToken(token);
-                  fetchAndSetUser(setUser);
+                  setValidationErrorTextId(null)
+                  const { token } = data
+                  setAuthToken(token)
+                  fetchAndSetUser(setUser)
 
-                  history.push(siteMap.USER.dashboard());
+                  history.push(siteMap.USER.dashboard())
                 })
                 .catch(() => {
-                  clearAuthToken();//WTF?
+                  clearAuthToken()//WTF?
                   setValidationErrorTextId('Login.error')
                 })
             }}
@@ -74,10 +77,10 @@ const Login = ({ intl }) => {
           </RightButton>
         </Row>
       </CenterBlockWrapper>
-    </React.Fragment>
-  );
-};
+    </>
+  )
+}
 
 const LoginWithIntl = injectIntl(Login)
 
-export default LoginWithIntl;
+export default LoginWithIntl
