@@ -2,8 +2,8 @@ import React from 'react'
 import Modal from './Modal'
 import ResetPasswordModal from './ModalsItems/ResetPasswordModal'
 
-const Modals = {
+const ModalsList = {
   ResetPasswordModal: <Modal component={<ResetPasswordModal />} />,
 }
 
-export default Modals
+export default ModalsList

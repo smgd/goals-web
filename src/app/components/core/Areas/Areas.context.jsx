@@ -3,14 +3,14 @@ import { fetchAndSetAreas } from './api'
 
 const AreasContext = createContext({})
 
-const AreasProvider = (props) => {
+const AreasProvider = ({ children }) => {
   const [areas, setAreas] = useState(null)
 
   useEffect(() => fetchAndSetAreas(setAreas), [])
 
   return (
     <AreasContext.Provider value={{ areas, setAreas }}>
-      {props.children}
+      {children}
     </AreasContext.Provider>
   )
 }

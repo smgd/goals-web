@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { FormattedMessage } from 'react-intl'
-import { AreasContext, AreasProvider } from './Areas.context'
+import { AreasContext } from './Areas.context'
 import AreasWrapper from './Areas.styles'
 import Button from '../../common/Buttons/Button'
 import Pie from '../../common/Pie'
@@ -10,7 +10,7 @@ import { siteMap } from '../../siteMap'
 
 
 const AreasComponent = () => {
-  const { areas, setAreas } = useContext(AreasContext)
+  const { areas } = useContext(AreasContext)
 
   if (!areas) return <Loader />
 

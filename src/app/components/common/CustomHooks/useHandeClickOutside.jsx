@@ -5,7 +5,7 @@ const useHandleClickOutside = (refId, handler) => {
     const ref = document.getElementById(refId)
     const listener = (event) => {
       if (!ref || ref.contains(event.target)) {
-        return null
+        return
       }
       handler(event)
     }

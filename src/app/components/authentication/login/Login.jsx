@@ -19,7 +19,7 @@ const Login = ({ intl }) => {
     history.push(siteMap.USER.dashboard())
   }
 
-  const { modal, setModal, Modals } = useContext(ModalContext)
+  const { modal } = useContext(ModalContext)
 
   const [username, setUsername] = useState(user.username)
   const [password, setPassword] = useState(user.password)

@@ -1,4 +1,12 @@
-import { default as axiosBase } from 'axios'
+import axiosBase from 'axios'
+
+
+const TOKEN_NAME = 'tokenpoken'
+
+export const getAuthToken = () => localStorage.getItem(TOKEN_NAME)
+export const hasAuthToken = () => !!getAuthToken()
+export const setAuthToken = (token) => localStorage.setItem(TOKEN_NAME, token)
+export const clearAuthToken = () => localStorage.removeItem(TOKEN_NAME)
 
 
 const getBackend = () => 'https://ilz.pw/api/'
@@ -30,10 +38,3 @@ export const api = (url) => ({
   patch: (data) => authenticatedRequest({ method: 'PATCH', url, data }),
   delete: () => authenticatedRequest({ method: 'DELETE', url }),
 })
-
-const TOKEN_NAME = 'tokenpoken'
-
-export const getAuthToken = () => localStorage.getItem(TOKEN_NAME)
-export const hasAuthToken = () => !!getAuthToken()
-export const setAuthToken = (token) => localStorage.setItem(TOKEN_NAME, token)
-export const clearAuthToken = () => localStorage.removeItem(TOKEN_NAME)

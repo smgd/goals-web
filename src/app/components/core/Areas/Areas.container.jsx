@@ -1,6 +1,5 @@
-import React, { useContext, useState } from 'react'
-import { AreasContext, AreasProvider } from './Areas.context'
-import { AreasWrapper } from './Areas.styles'
+import React from 'react'
+import { AreasProvider } from './Areas.context'
 import AreasComponent from './Areas.component'
 
 const AreasContainer = () => (

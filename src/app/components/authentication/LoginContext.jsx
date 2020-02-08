@@ -3,7 +3,7 @@ import { fetchAndSetUser } from './api'
 
 const LoginContext = createContext({})
 
-const LoginProvider = (props) => {
+const LoginProvider = ({ children }) => {
   const [user, setUser] = useState({
     username: null,
     firstName: null,
@@ -16,7 +16,7 @@ const LoginProvider = (props) => {
 
   return (
     <LoginContext.Provider value={{ user, setUser }}>
-      {props.children}
+      {children}
     </LoginContext.Provider>
   )
 }
