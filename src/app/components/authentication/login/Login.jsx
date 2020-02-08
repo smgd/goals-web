@@ -8,12 +8,13 @@ import { fetchAndSetUser, loginUser } from '../api';
 import { clearAuthToken, setAuthToken } from "../../../api/api";
 import { injectIntl, FormattedMessage } from 'react-intl';
 import { ButtonTheme } from '../../../model/Themes';
+import { siteMap } from '../../siteMap';
 
 const Login = ({ intl }) => {
   const { user, setUser } = useContext(LoginContext);
 
   if (user.username) {//TODO: make hoc this case
-    history.push('/dashboard');
+    history.push(siteMap.USER.dashboard());
   }
 
   const { modal, setModal, Modals } = useContext(ModalContext);
@@ -55,7 +56,7 @@ const Login = ({ intl }) => {
                   setAuthToken(token);
                   fetchAndSetUser(setUser);
 
-                  history.push('/dashboard');
+                  history.push(siteMap.USER.dashboard());
                 })
                 .catch(() => {
                   clearAuthToken();//WTF?
@@ -67,7 +68,7 @@ const Login = ({ intl }) => {
           </LeftButton>
           <RightButton
             theme={ButtonTheme.DARK}
-            onClick={() => history.push('/')}
+            onClick={() => history.push(siteMap.GUEST.index())}
           >
             <FormattedMessage id="Login.cancel" />
           </RightButton>

@@ -12,6 +12,7 @@ import { Loader } from '../components/common/Common.styles';
 import AreasContainer from "../components/core/Areas/Areas.container";
 import Page404 from "../components/Page404";
 import AreaComponent from "../components/core/Areas/Area.component";
+import { siteMap } from '../components/siteMap';
 
 
 const PrivateRoute = ({ user, component: Component, ...rest }) => {
@@ -29,36 +30,37 @@ const PrivateRoute = ({ user, component: Component, ...rest }) => {
 
 const AuthRouter = () => {
   const { user } = useContext(LoginContext);
-  return (!user.isFetched ? <Loader />
-    : (
-      <Router history={history}>
-        <Switch>
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
 
-          <PrivateRoute
-            path="/dashboard"
-            component={Dashboard}
-            user={user}
-          />
-          <PrivateRoute
-            path="/areas/create"
-            component={AreaComponent}
-            user={user}
-          />
-          <PrivateRoute
-            path="/areas"
-            exact
-            component={AreasContainer}
-            user={user}
-          />
+  if (!user.isFetched) return <Loader />
 
-          <Route path="/" exact component={AuthPage} />
-          <PrivateRoute component={Page404} user={user} />
-        </Switch>
-      </Router>
-    )
-  );
+  return (
+    <Router history={history}>
+      <Switch>
+        <Route path={siteMap.GUEST.login()} component={Login} />
+        <Route path={siteMap.GUEST.register()} component={Register} />
+
+        <PrivateRoute
+          path={siteMap.USER.dashboard()}
+          component={Dashboard}
+          user={user}
+        />
+        <PrivateRoute
+          path={siteMap.USER.createArea()}
+          component={AreaComponent}
+          user={user}
+        />
+        <PrivateRoute
+          path={siteMap.USER.areas()}
+          exact
+          component={AreasContainer}
+          user={user}
+        />
+
+        <Route path={siteMap.GUEST.index()} exact component={AuthPage} />
+        <PrivateRoute component={Page404} user={user} />
+      </Switch>
+    </Router>
+  )
 };
 
 export default AuthRouter;

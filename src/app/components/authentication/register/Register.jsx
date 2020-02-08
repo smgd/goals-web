@@ -7,6 +7,7 @@ import { setAuthToken } from "../../../api/api";
 import { LoginContext } from "../LoginContext";
 import { ButtonTheme } from '../../../model/Themes';
 import { FormattedMessage, injectIntl } from 'react-intl';
+import { siteMap } from '../../siteMap';
 
 const Register = ({ intl }) => {
   const { user, setUser } = useContext(LoginContext);
@@ -19,7 +20,7 @@ const Register = ({ intl }) => {
   const [validationErrorTextId, setValidationErrorTextId] = useState(null);
 
   if (user.username) {
-    history.push('/dashboard');
+    history.push(siteMap.USER.dashboard());
   }
 
   const onRegisterButtonClick = () => {
@@ -39,7 +40,7 @@ const Register = ({ intl }) => {
         const { token } = data;
         setAuthToken(token);
         fetchAndSetUser(setUser);
-        history.push('/dashboard');
+        history.push(siteMap.USER.dashboard());
       })
       .catch(() => console.log('blabla'))
   };
@@ -97,7 +98,7 @@ const Register = ({ intl }) => {
         <RightButton
           title="Cancel"
           theme={ButtonTheme.DARK}
-          onClick={() => history.push('/')}
+          onClick={() => history.push(siteMap.GUEST.index())}
         >
           <FormattedMessage id="Register.btn.cancel" />
         </RightButton>

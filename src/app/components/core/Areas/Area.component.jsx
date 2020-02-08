@@ -5,6 +5,7 @@ import Button from "../../common/Buttons/Button";
 import Input from "../../common/Inputs/Input";
 import { createArea } from "./api";
 import { FormattedMessage } from 'react-intl';
+import { siteMap } from '../../siteMap';
 
 const AreaComponent = () => {
   const [ name, setName ] = useState(null);
@@ -22,7 +23,7 @@ const AreaComponent = () => {
 
   const onCreate = () => {
     createArea(name, description, '', false, weight)
-      .then(() => history.push('/areas'))
+      .then(() => history.push(siteMap.USER.areas()))
   };
 
   return (
