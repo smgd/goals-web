@@ -1,5 +1,31 @@
 {
   "parser": "babel-eslint",
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "jest": true
+  },
   "rules": {
+    "semi": ["error", "never"],
+    "linebreak-style": "off",
+    "max-len": ["error", 140],
+    "no-console": "off",
+    "spaced-comment": "off",
+    "import/no-extraneous-dependencies": "off",
+    "react/prop-types": "off",
+    "react/require-default-props": "off",
+    "dot-notation": "off",
+    "import/prefer-default-export": "off",
+    "no-underscore-dangle": ["error", { "allowAfterThis": true }],
+    "react/no-array-index-key": "off",
+    "class-methods-use-this": "off",
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "ignore",
+      "imports": "always-multiline",
+      "objects": "always-multiline"
+    }]
   }
 }
