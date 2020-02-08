@@ -1,24 +1,24 @@
-import React, { createContext, useState, useEffect } from 'react';
-import { fetchAndSetUser } from './api';
+import React, { createContext, useState, useEffect } from 'react'
+import { fetchAndSetUser } from './api'
 
-const LoginContext = createContext({});
+const LoginContext = createContext({})
 
-const LoginProvider = props => {
+const LoginProvider = (props) => {
   const [user, setUser] = useState({
     username: null,
     firstName: null,
     lastName: null,
     email: null,
     isFetched: false,
-  });
+  })
 
-  useEffect(() => fetchAndSetUser(setUser), []);
+  useEffect(() => fetchAndSetUser(setUser), [])
 
   return (
     <LoginContext.Provider value={{ user, setUser }}>
       {props.children}
     </LoginContext.Provider>
-  );
-};
+  )
+}
 
-export { LoginContext, LoginProvider };
+export { LoginContext, LoginProvider }

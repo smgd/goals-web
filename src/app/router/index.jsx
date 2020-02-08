@@ -1,35 +1,35 @@
-import React, { useContext } from 'react';
+import React, { useContext } from 'react'
 import {
   Route, Switch, Router, Redirect,
-} from 'react-router-dom';
-import history from './history';
-import Login from '../components/authentication/login/Login';
-import Register from '../components/authentication/register/Register';
-import Dashboard from '../components/core/Dashboard';
-import AuthPage from '../components/authentication/AuthPage';
-import { LoginContext } from '../components/authentication/LoginContext';
-import { Loader } from '../components/common/Common.styles';
-import AreasContainer from "../components/core/Areas/Areas.container";
-import Page404 from "../components/Page404";
-import AreaComponent from "../components/core/Areas/Area.component";
-import { siteMap } from '../components/siteMap';
+} from 'react-router-dom'
+import history from './history'
+import Login from '../components/authentication/login/Login'
+import Register from '../components/authentication/register/Register'
+import Dashboard from '../components/core/Dashboard'
+import AuthPage from '../components/authentication/AuthPage'
+import { LoginContext } from '../components/authentication/LoginContext'
+import { Loader } from '../components/common/Common.styles'
+import AreasContainer from '../components/core/Areas/Areas.container'
+import Page404 from '../components/Page404'
+import AreaComponent from '../components/core/Areas/Area.component'
+import { siteMap } from '../components/siteMap'
 
 
 const PrivateRoute = ({ user, component: Component, ...rest }) => {
-  const { username } = user;
+  const { username } = user
   if (!username) {
-    return <Redirect to="/" />;
+    return <Redirect to="/" />
   }
   return (
     <Route
       {...rest}
       render={(props) => <Component {...props} user={user} />}
     />
-  );
-};
+  )
+}
 
 const AuthRouter = () => {
-  const { user } = useContext(LoginContext);
+  const { user } = useContext(LoginContext)
 
   if (!user.isFetched) return <Loader />
 
@@ -61,6 +61,6 @@ const AuthRouter = () => {
       </Switch>
     </Router>
   )
-};
+}
 
-export default AuthRouter;
+export default AuthRouter

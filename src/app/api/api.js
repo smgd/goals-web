@@ -1,13 +1,12 @@
-import { default as axiosBase } from 'axios';
+import { default as axiosBase } from 'axios'
 
 
-const getBackend = () => {
-  return 'https://ilz.pw/api/';
-  // return 'http://localhost:8000/api/';
-  // return process.env.BACKEND_URL; TODO
-};
+const getBackend = () => 'https://ilz.pw/api/'
+// return 'http://localhost:8000/api/';
+// return process.env.BACKEND_URL; TODO
 
-const URL_API = getBackend();
+
+const URL_API = getBackend()
 
 export const apiBase = axiosBase.create({
   baseURL: URL_API,
@@ -15,26 +14,26 @@ export const apiBase = axiosBase.create({
   headers: {
     'Content-Type': 'application/json',
   },
-});
+})
 
 const authenticatedRequest = (props) => apiBase({
   ...props,
   headers: {
-    'Authorization': getAuthToken(),
+    Authorization: getAuthToken(),
     ...props.headers,
   },
-});
+})
 
 export const api = (url) => ({
   get: (params) => authenticatedRequest({ method: 'GET', url, params }),
   post: (data) => authenticatedRequest({ method: 'POST', url, data }),
   patch: (data) => authenticatedRequest({ method: 'PATCH', url, data }),
   delete: () => authenticatedRequest({ method: 'DELETE', url }),
-});
+})
 
-const TOKEN_NAME = 'tokenpoken';
+const TOKEN_NAME = 'tokenpoken'
 
-export const getAuthToken = () => localStorage.getItem(TOKEN_NAME);
-export const hasAuthToken = () => !!getAuthToken();
-export const setAuthToken = token => localStorage.setItem(TOKEN_NAME, token);
-export const clearAuthToken = () => localStorage.removeItem(TOKEN_NAME);
+export const getAuthToken = () => localStorage.getItem(TOKEN_NAME)
+export const hasAuthToken = () => !!getAuthToken()
+export const setAuthToken = (token) => localStorage.setItem(TOKEN_NAME, token)
+export const clearAuthToken = () => localStorage.removeItem(TOKEN_NAME)

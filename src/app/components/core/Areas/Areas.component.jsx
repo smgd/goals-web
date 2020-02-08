@@ -1,18 +1,18 @@
-import React, {useContext, useEffect, useState} from 'react';
-import { AreasContext, AreasProvider } from './Areas.context';
-import AreasWrapper from "./Areas.styles";
-import Button from "../../common/Buttons/Button";
-import Pie from "../../common/Pie";
-import { Loader } from "../../common/Common.styles";
-import history from "../../../router/history";
-import { FormattedMessage } from 'react-intl';
-import { siteMap } from '../../siteMap';
+import React, { useContext, useEffect, useState } from 'react'
+import { FormattedMessage } from 'react-intl'
+import { AreasContext, AreasProvider } from './Areas.context'
+import AreasWrapper from './Areas.styles'
+import Button from '../../common/Buttons/Button'
+import Pie from '../../common/Pie'
+import { Loader } from '../../common/Common.styles'
+import history from '../../../router/history'
+import { siteMap } from '../../siteMap'
 
 
 const AreasComponent = () => {
-  const { areas, setAreas } = useContext(AreasContext);
+  const { areas, setAreas } = useContext(AreasContext)
 
-  if (!areas) return <Loader/>
+  if (!areas) return <Loader />
 
   return (
     <AreasWrapper>
@@ -28,7 +28,7 @@ const AreasComponent = () => {
       </AreasWrapper.Button>
       <AreasWrapper.Areas>
         <Pie
-          areas={areas.map(area => ({
+          areas={areas.map((area) => ({
             weight: area.weight,
             id: area.id,
             name: area.name,
@@ -36,7 +36,7 @@ const AreasComponent = () => {
         />
       </AreasWrapper.Areas>
     </AreasWrapper>
-  );
-};
+  )
+}
 
-export default AreasComponent;
+export default AreasComponent

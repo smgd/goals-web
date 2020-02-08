@@ -1,6 +1,6 @@
-import React from 'react';
-import ButtonWrapper from './Button.styles';
-import { ButtonTheme } from '../../../model/Themes';
+import React from 'react'
+import ButtonWrapper from './Button.styles'
+import { ButtonTheme } from '../../../model/Themes'
 
 const componentTheme = {
   [ButtonTheme.LIGHT]: {
@@ -13,16 +13,16 @@ const componentTheme = {
     border: '1px solid #FEBD81',
     background: '#FFFFFF',
   },
-};
+}
 
 const Button = ({ theme, children, ...etc }) => (
   <ButtonWrapper theme={componentTheme[theme]} {...etc}>
     <ButtonWrapper.Title>{children}</ButtonWrapper.Title>
   </ButtonWrapper>
-);
+)
 
 Button.defaultProps = {
   theme: ButtonTheme.LIGHT,
-};
+}
 
-export default Button;
+export default Button

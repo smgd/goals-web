@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const InputWrapper = styled('input')`
   width: 320px;
@@ -9,6 +9,6 @@ const InputWrapper = styled('input')`
   margin: 0 0 15px;
   padding: 15px;
   box-sizing: border-box;
-`;
+`
 
-export default InputWrapper;
+export default InputWrapper
