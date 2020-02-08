@@ -6,6 +6,7 @@ import Pie from "../../common/Pie";
 import { Loader } from "../../common/Common.styles";
 import history from "../../../router/history";
 import { FormattedMessage } from 'react-intl';
+import { siteMap } from '../../siteMap';
 
 
 const AreasComponent = () => {
@@ -20,7 +21,7 @@ const AreasComponent = () => {
       </AreasWrapper.Title>
       <AreasWrapper.Button>
         <Button
-          onClick={() => history.push('/areas/create')}
+          onClick={() => history.push(siteMap.USER.createArea())}
         >
           <FormattedMessage id="AreasComponent.btn.create" />
         </Button>

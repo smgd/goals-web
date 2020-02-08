@@ -9,8 +9,6 @@ const messages = {
   [Language.EN]: messagesEn,
 }
 
-console.log(messages)
-
 const LocalizationProvider = ({ children }) => {
   const currentLocale = Language.EN
   return (

@@ -8,6 +8,7 @@ import { LoginContext } from "./LoginContext";
 import logo from '../../../assets/images/caribou.png';
 import { ButtonTheme } from '../../model/Themes';
 import { FormattedMessage } from 'react-intl';
+import { siteMap } from '../siteMap';
 
 const Header = styled(Fonts.H1)`
   margin-bottom: 10px;
@@ -28,7 +29,7 @@ const AuthPage = () => {
   const { user } = useContext(LoginContext);
 
   if (user.username) {
-    history.push('/dashboard');
+    history.push(siteMap.USER.dashboard());
   }
 
   return (
@@ -45,13 +46,13 @@ const AuthPage = () => {
         </Paragraph>
         <Row>
           <LeftButton
-            onClick={() => history.push('/login')}
+            onClick={() => history.push(siteMap.GUEST.login())}
           >
             <FormattedMessage id="AuthPage.signIn" />
           </LeftButton>
           <RightButton
             theme={ButtonTheme.DARK}
-            onClick={() => history.push('/register')}
+            onClick={() => history.push(siteMap.GUEST.register())}
           >
             <FormattedMessage id="AuthPage.signUp" />
           </RightButton>
