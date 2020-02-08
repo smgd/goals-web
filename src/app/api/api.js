@@ -27,7 +27,7 @@ export const apiBase = axiosBase.create({
 const authenticatedRequest = (props) => apiBase({
   ...props,
   headers: {
-    Authorization: getAuthToken(),
+    Authorization: `Bearer ${getAuthToken()}`,
     ...props.headers,
   },
 })
