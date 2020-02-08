@@ -26,6 +26,8 @@
       "functions": "ignore",
       "imports": "always-multiline",
       "objects": "always-multiline"
-    }]
+    }],
+    "jsx-a11y/mouse-events-have-key-events": "off",
+    "react/jsx-props-no-spreading": "off"
   }
 }
