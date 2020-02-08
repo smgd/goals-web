@@ -4,10 +4,10 @@ import AreasWrapper, { AreaInputs } from "./Areas.styles";
 import Button from "../../common/Buttons/Button";
 import Input from "../../common/Inputs/Input";
 import { createArea } from "./api";
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import { siteMap } from '../../siteMap';
 
-const AreaComponent = () => {
+const AreaComponent = ({ intl }) => {
   const [ name, setName ] = useState(null);
   const [ description, setDescription ] = useState(null);
   const [ weight, setWeight ] = useState(null);
@@ -65,4 +65,6 @@ const AreaComponent = () => {
   );
 };
 
-export default AreaComponent;
+const AreaComponentWithIntl = injectIntl(AreaComponent)
+
+export default AreaComponentWithIntl;
