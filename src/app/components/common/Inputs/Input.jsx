@@ -1,39 +1,39 @@
 import React from 'react'
+import { injectIntl } from 'react-intl'
 import InputWrapper from './Input.styles'
+import { InputTheme } from '../../../model/Themes'
+
+const themes = {
+  [InputTheme.LIGHT]: {
+    border: '#F3F3F3',
+    background: '#F3F3F3',
+  },
+  [InputTheme.LIGHT_WITH_BORDER]: {
+    border: '#FEBD81',
+    background: '#F3F3F3',
+  },
+}
 
 const Input = ({
-  placeholder, type, theme, value, onChange, extraStyle,
+  intl, placeholder, placeholderId, theme, ...etc
 }) => {
-  const themes = {
-    light: {
-      border: '#F3F3F3',
-      background: '#F3F3F3',
-    },
-    lightWithBorder: {
-      border: '#FEBD81',
-      background: '#F3F3F3',
-    },
-  }
-
+  const placeholderText = placeholderId
+    ? intl.formatMessage({ id: placeholderId })
+    : placeholder
   return (
     <InputWrapper
-      placeholder={placeholder}
-      type={type}
+      placeholder={placeholderText}
       theme={themes[theme]}
-      value={value || ''}
-      onChange={onChange}
-      style={extraStyle}
+      {...etc}
     />
   )
 }
 
 Input.defaultProps = {
-  placeholder: '',
-  theme: 'light',
+  theme: InputTheme.LIGHT,
   type: 'text',
-  value: null,
-  onChange: () => {},
-  style: {},
 }
 
-export default Input
+const InputWithIntl = injectIntl(Input)
+
+export default InputWithIntl
