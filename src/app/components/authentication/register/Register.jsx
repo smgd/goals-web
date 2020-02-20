@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { FormattedMessage, injectIntl } from 'react-intl'
+import { FormattedMessage } from 'react-intl'
 import {
   CenterBlockWrapper, LeftButton, RightButton, Row, ValidationError,
 } from '../../common/Common.styles'
@@ -11,7 +11,7 @@ import { LoginContext } from '../LoginContext'
 import { ButtonTheme } from '../../../model/Themes'
 import { siteMap } from '../../siteMap'
 
-const Register = ({ intl }) => {
+const Register = () => {
   const { user, setUser } = useContext(LoginContext)
   const [username, setUsername] = useState(null)
   const [firstName, setFirstName] = useState(null)
@@ -107,6 +107,4 @@ const Register = ({ intl }) => {
   )
 }
 
-const RegisterWithIntl = injectIntl(Register)
-
-export default RegisterWithIntl
+export default Register

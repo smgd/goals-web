@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { injectIntl, FormattedMessage } from 'react-intl'
+import { FormattedMessage } from 'react-intl'
 import {
   CenterBlockWrapper, Row, ValidationError, LeftButton, RightButton,
 } from '../../common/Common.styles'
@@ -12,7 +12,7 @@ import { clearAuthToken, setAuthToken } from '../../../api/api'
 import { ButtonTheme } from '../../../model/Themes'
 import { siteMap } from '../../siteMap'
 
-const Login = ({ intl }) => {
+const Login = () => {
   const { user, setUser } = useContext(LoginContext)
 
   if (user.username) { //TODO: make hoc this case
@@ -78,6 +78,4 @@ const Login = ({ intl }) => {
   )
 }
 
-const LoginWithIntl = injectIntl(Login)
-
-export default LoginWithIntl
+export default Login

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FormattedMessage, injectIntl } from 'react-intl'
+import { FormattedMessage } from 'react-intl'
 import history from '../../../router/history'
 import AreasWrapper, { AreaInputs } from './Areas.styles'
 import Button from '../../common/Buttons/Button'
@@ -8,7 +8,7 @@ import { createArea } from './api'
 import { siteMap } from '../../siteMap'
 import { InputTheme } from '../../../model/Themes'
 
-const AreaComponent = ({ intl }) => {
+const AreaComponent = () => {
   const [name, setName] = useState(null)
   const [description, setDescription] = useState(null)
   const [weight, setWeight] = useState(null)
@@ -63,6 +63,4 @@ const AreaComponent = ({ intl }) => {
   )
 }
 
-const AreaComponentWithIntl = injectIntl(AreaComponent)
-
-export default AreaComponentWithIntl
+export default AreaComponent

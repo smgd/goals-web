@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { injectIntl, FormattedMessage } from 'react-intl'
+import { FormattedMessage } from 'react-intl'
 import Input from '../../Inputs/Input'
 import Button from '../../Buttons/Button'
 import { ButtonTheme } from '../../../../model/Themes'
 
-const ResetPasswordModal = ({ intl, setModal }) => {
+const ResetPasswordModal = ({ setModal }) => {
   const [resetEmail, setResetEmail] = useState(null)
 
   return (
@@ -27,6 +27,4 @@ const ResetPasswordModal = ({ intl, setModal }) => {
   )
 }
 
-const ResetPasswordModalWithIntl = injectIntl(ResetPasswordModal)
-
-export default ResetPasswordModalWithIntl
+export default ResetPasswordModal
