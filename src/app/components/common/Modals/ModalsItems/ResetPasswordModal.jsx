@@ -10,7 +10,7 @@ const ResetPasswordModal = ({ intl, setModal }) => {
   return (
     <>
       <Input
-        placeholder={intl.formatMessage({ id: 'ResetPasswordModal.resetEmail' })}
+        placeholderId="ResetPasswordModal.resetEmail"
         value={resetEmail}
         onChange={(e) => setResetEmail(e.target.value)}
       />

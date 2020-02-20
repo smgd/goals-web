@@ -51,37 +51,34 @@ const Register = ({ intl }) => {
     <CenterBlockWrapper>
       <Input
         type="email"
-        placeholder={intl.formatMessage({ id: 'Register.field.email' })}
+        placeholderId="Register.field.email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
       <Input
-        type="text"
-        placeholder={intl.formatMessage({ id: 'Register.field.username' })}
+        placeholderId="Register.field.username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
       <Input
-        type="text"
-        placeholder={intl.formatMessage({ id: 'Register.field.firstName' })}
+        placeholderId="Register.field.firstName"
         value={firstName}
         onChange={(e) => setFirstName(e.target.value)}
       />
       <Input
-        type="text"
-        placeholder={intl.formatMessage({ id: 'Register.field.lastName' })}
+        placeholderId="Register.field.lastName"
         value={lastName}
         onChange={(e) => setLastName(e.target.value)}
       />
       <Input
         type="password"
-        placeholder={intl.formatMessage({ id: 'Register.field.password' })}
+        placeholderId="Register.field.password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
       <Input
         type="password"
-        placeholder={intl.formatMessage({ id: 'Register.field.passwordConfirmation' })}
+        placeholderId="Register.field.passwordConfirmation"
         value={passwordAgain}
         onChange={(e) => setPasswordAgain(e.target.value)}
       />
