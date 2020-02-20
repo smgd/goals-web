@@ -30,8 +30,8 @@
     "url-loader": "^3.0.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --open --mode development",
-    "build": "webpack --mode production",
+    "start": "webpack-dev-server --open --mode development --ENV=DEV",
+    "build": "webpack --mode production --ENV=PROD",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

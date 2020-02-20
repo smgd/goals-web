@@ -1,7 +1,8 @@
 import axiosBase from 'axios'
 
 
-const TOKEN_NAME = 'tokenpoken'
+const TOKEN_NAME = process.env.TOKEN_NAME
+const API_URL = process.env.API_URL
 
 export const getAuthToken = () => localStorage.getItem(TOKEN_NAME)
 export const hasAuthToken = () => !!getAuthToken()
@@ -15,9 +16,7 @@ const getAuthorizationHeader = () => {
     : {}
 }
 
-const getBackend = () => 'https://ilz.pw/api/'
-// return 'http://localhost:8000/api/';
-// return process.env.BACKEND_URL; TODO
+const getBackend = () => API_URL
 
 
 const URL_API = getBackend()
