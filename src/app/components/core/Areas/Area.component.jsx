@@ -6,6 +6,7 @@ import Button from '../../common/Buttons/Button'
 import Input from '../../common/Inputs/Input'
 import { createArea } from './api'
 import { siteMap } from '../../siteMap'
+import { InputTheme } from '../../../model/Themes'
 
 const AreaComponent = ({ intl }) => {
   const [name, setName] = useState(null)
@@ -34,23 +35,20 @@ const AreaComponent = ({ intl }) => {
       <AreasWrapper.Areas>
         <AreaInputs>
           <Input
-            type="text"
-            theme="lightWithBorder"
-            placeholder={intl.formatMessage({ id: 'AreaComponent.field.name' })}
+            theme={InputTheme.LIGHT_WITH_BORDER}
+            placeholderId="AreaComponent.field.name"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
           <Input
-            type="text"
-            theme="lightWithBorder"
-            placeholder={intl.formatMessage({ id: 'AreaComponent.field.description' })}
+            theme={InputTheme.LIGHT_WITH_BORDER}
+            placeholderId="AreaComponent.field.description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
           <Input
-            type="text"
-            theme="lightWithBorder"
-            placeholder={intl.formatMessage({ id: 'AreaComponent.field.weight' })}
+            theme={InputTheme.LIGHT_WITH_BORDER}
+            placeholderId="AreaComponent.field.weight"
             value={weight}
             onChange={(e) => onWeightUpdate(e.target.value)}
           />

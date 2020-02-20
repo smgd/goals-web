@@ -30,16 +30,13 @@ const Login = ({ intl }) => {
       {modal || null}
       <CenterBlockWrapper>
         <Input
-          theme="light"
-          type="text"
-          placeholder={intl.formatMessage({ id: 'Login.username' })}
+          placeholderId="Login.username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         <Input
-          theme="light"
           type="password"
-          placeholder={intl.formatMessage({ id: 'Login.password' })}
+          placeholderId="Login.password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
