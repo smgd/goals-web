@@ -8,6 +8,12 @@ export const hasAuthToken = () => !!getAuthToken()
 export const setAuthToken = (token) => localStorage.setItem(TOKEN_NAME, token)
 export const clearAuthToken = () => localStorage.removeItem(TOKEN_NAME)
 
+const getAuthorizationHeader = () => {
+  const accessToken = getAuthToken()
+  return accessToken
+    ? { Authorization: `Bearer ${accessToken}` }
+    : {}
+}
 
 const getBackend = () => 'https://ilz.pw/api/'
 // return 'http://localhost:8000/api/';
@@ -27,7 +33,7 @@ export const apiBase = axiosBase.create({
 const authenticatedRequest = (props) => apiBase({
   ...props,
   headers: {
-    Authorization: `Bearer ${getAuthToken()}`,
+    ...getAuthorizationHeader(),
     ...props.headers,
   },
 })
