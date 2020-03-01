@@ -28,7 +28,7 @@ module.exports = (env) => {
     },
     plugins: [
       new webpack.DefinePlugin(envKeys),
-      new CleanWebpackPlugin(),
+      new CleanWebpackPugin(),
       new HtmlWebpackPlugin({
         title: 'Caribou',
         favicon: './src/assets/images/favicon.ico',
